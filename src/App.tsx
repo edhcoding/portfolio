@@ -4,7 +4,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>hello world</div>} />
+        <Route
+          path="/"
+          element={<div className="text-red-300">hello world</div>}
+        />
       </Routes>
     </BrowserRouter>
   );
