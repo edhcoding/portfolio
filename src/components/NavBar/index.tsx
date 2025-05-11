@@ -101,7 +101,7 @@ export default function NavBar({ containerRef }: NavBarProps) {
             <Box px={3}>
               <Divider />
             </Box>
-            <Box width="100%">
+            <Box width="100%" color="primary.dark">
               <List sx={{ py: 2 }}>{listItems}</List>
             </Box>
           </Collapse>
