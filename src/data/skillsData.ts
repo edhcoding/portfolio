@@ -41,7 +41,7 @@ export const skillsData: SkillItemType[] = [
     rating: 4,
     image: "/images/stackIcon/Nextjs.webp",
     description:
-      "리액트와 더불어 메인으로 다루는 기술스택입니다. NextAuth를 활용한 인증 구현, dynamic import를 통한 성능개선과 SSR상황에서의 다양한 트러블 슈팅 경험이 있습니다.",
+      "리액트와 더불어 메인으로 다루는 기술스택입니다. \n NextAuth를 활용한 인증 구현, dynamic import를 통한 성능개선과 SSR상황에서의 다양한 트러블 슈팅 경험이 있습니다.",
   },
   {
     name: "ReactNative",

@@ -54,7 +54,7 @@ export default function HeroSection() {
       px={3}
       py={10}
       display="flex"
-      width="100vw"
+      width="100%"
       minHeight="100vh"
       alignItems="center"
       bgcolor="primary.dark"

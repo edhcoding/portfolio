@@ -22,7 +22,7 @@ export default function getTheme(isMobile: boolean = false) {
       primary: {
         main: "#5CC792",
         light: "#E7EFF6",
-        dark: "#262626",
+        dark: "#1e1e1e",
         contrastText: "#F9F9F9",
       },
       secondary: {

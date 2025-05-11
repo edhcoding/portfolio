@@ -56,9 +56,7 @@ export default function SkillList() {
   );
 
   return (
-    <Box
-      sx={{ overflow: "hidden", borderRadius: "20px", position: "relative" }}
-    >
+    <Box overflow="hidden" borderRadius="20px" position="relative">
       <Box sx={scrollAnimation}>
         {[...skillsData, ...skillsData].map((skill, idx) => (
           <Box
@@ -74,86 +72,75 @@ export default function SkillList() {
         <Dialog
           open={!!selectedSkill}
           onClose={() => setSelectedSkill(null)}
+          hideBackdrop
           slots={{
             transition: Zoom,
           }}
           sx={{
             borderRadius: "20px",
-            backgroundColor: "rgba(0,0,0,0.1)",
           }}
         >
-          <>
-            <DialogTitle
-              sx={{
-                width: "100%",
-                maxWidth: "550px",
-                paddingX: 5,
-                paddingTop: 5,
-                paddingBottom: 3,
-              }}
-            >
-              <Box
-                alignItems="center"
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  height: "60px",
-                }}
-              >
-                <img
-                  height={60}
-                  src={selectedSkill.image}
-                  alt={selectedSkill.name}
-                />
-                <Box display="flex" flexDirection="column">
-                  <Typography
-                    fontSize={20}
-                    color="primary.dark"
-                    fontWeight={FontWeightValues.BOLD}
-                  >
-                    {selectedSkill.name}
-                  </Typography>
-                  <Grid container width="100%" spacing={0.5} flexWrap="nowrap">
-                    {[...Array(5)].map((_, i) => (
-                      <Grid
-                        key={`${selectedSkill.name}-star-${i}`}
-                        width="50px"
-                      >
-                        <LinearProgress
-                          variant="determinate"
-                          value={selectedSkill.rating > i ? 100 : 0}
-                          color="primary"
-                          sx={{
-                            mt: 1,
-                            height: 10,
-                            borderRadius: 0,
-                          }}
-                        />
-                      </Grid>
-                    ))}
-                  </Grid>
-                </Box>
+          <DialogTitle
+            width="100%"
+            maxWidth="550px"
+            paddingX={5}
+            paddingTop={5}
+            paddingBottom={3}
+          >
+            <Box display="flex" alignItems="center" gap={2} height="60px">
+              <img
+                height={60}
+                src={selectedSkill.image}
+                alt={selectedSkill.name}
+              />
+              <Box display="flex" flexDirection="column">
+                <Typography
+                  fontSize={20}
+                  color="primary.dark"
+                  fontWeight={FontWeightValues.BOLD}
+                >
+                  {selectedSkill.name}
+                </Typography>
+                <Grid container width="100%" spacing={0.5} flexWrap="nowrap">
+                  {[...Array(5)].map((_, i) => (
+                    <Grid key={`${selectedSkill.name}-star-${i}`} width="50px">
+                      <LinearProgress
+                        color="primary"
+                        variant="determinate"
+                        value={selectedSkill.rating > i ? 100 : 0}
+                        sx={{
+                          mt: 1,
+                          height: 10,
+                          borderRadius: 0,
+                        }}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
               </Box>
-            </DialogTitle>
-            <DialogContent
-              sx={{
-                width: "100%",
-                maxWidth: "550px",
-                paddingX: 5,
-                paddingBottom: 5,
-              }}
-            >
+            </Box>
+          </DialogTitle>
+          <DialogContent
+            sx={{
+              width: "100%",
+              maxWidth: "550px",
+              paddingX: 3,
+              paddingBottom: 3,
+            }}
+          >
+            {selectedSkill.description?.split("\n").map((line, idx) => (
               <Typography
+                key={idx}
                 variant="body2"
-                fontSize={16}
-                lineHeight={1.5}
+                fontSize={18}
+                lineHeight={1.7}
                 color="primary.dark"
                 fontWeight={FontWeightValues.MEDIUM}
               >
-                {selectedSkill.description}
+                {line}
               </Typography>
-            </DialogContent>
-          </>
+            ))}
+          </DialogContent>
         </Dialog>
       )}
     </Box>
