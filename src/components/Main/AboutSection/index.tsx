@@ -1,10 +1,11 @@
 import { Sections } from "@/types";
 import { FontWeightValues } from "@/types/styles";
 
+import { aboutData } from "@/data/aboutData";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import { aboutData } from "@/data/aboutData";
 
 export default function AboutSection() {
   return (

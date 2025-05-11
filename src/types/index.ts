@@ -17,3 +17,9 @@ export type SkillItemType = {
   language?: string;
   code?: string;
 };
+
+export interface EduItemProps {
+  title: string;
+  logoSrc: string;
+  descs: string[];
+}
