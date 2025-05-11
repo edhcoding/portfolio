@@ -20,13 +20,17 @@ export default function getTheme(isMobile: boolean = false) {
     },
     palette: {
       primary: {
-        main: "#334155",
+        main: "#5CC792",
         light: "#E7EFF6",
+        dark: "#262626",
         contrastText: "#F9F9F9",
       },
       secondary: {
         main: "#44698C",
         light: "#CBD5E1",
+      },
+      success: {
+        main: "#262626",
       },
       text: {
         primary: "#334155",

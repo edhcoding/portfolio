@@ -1,13 +1,17 @@
-import TopNav from "@/components/NavBar";
 import { useRef } from "react";
+
+import TopNav from "@/components/NavBar";
+import Box from "@mui/material/Box";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null!);
 
   return (
-    <>
+    <Box sx={{ width: "100%" }}>
       <TopNav containerRef={containerRef} />
-      <div style={{ height: "10000px" }}></div>
-    </>
+      <HeroSection />
+      <div style={{ height: "1000px" }} />
+    </Box>
   );
 }
