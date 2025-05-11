@@ -1,6 +1,6 @@
+import type { SxProps } from "@mui/material/styles";
 import { FontWeightValues } from "@/types/styles";
 import { Sections } from "@/types";
-import type { SxProps } from "@mui/material/styles";
 
 import Box from "@mui/material/Box";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -18,11 +18,11 @@ import useStartedScroll from "@/hooks/useStartedScroll";
 
 import NavBarContent from "@/components/NavBar/NavBarContent";
 
-interface NavBarProps {
+interface Props {
   containerRef: RefObject<HTMLDivElement>;
 }
 
-export default function NavBar({ containerRef }: NavBarProps) {
+export default function NavBar({ containerRef }: Props) {
   const { isMobile } = useDeviceQuery();
   const { startedScroll } = useStartedScroll(containerRef);
   const [isOpen, setIsOpen] = useState(false);
@@ -51,10 +51,8 @@ export default function NavBar({ containerRef }: NavBarProps) {
             onClick={() => onClickNavigator(section)}
           >
             <Typography
-              sx={{
-                fontSize: isMobile ? 16 : 20,
-                fontWeight: FontWeightValues.MEDIUM,
-              }}
+              fontSize={isMobile ? 20 : 24}
+              fontWeight={FontWeightValues.MEDIUM}
             >
               {section}
             </Typography>
@@ -88,7 +86,6 @@ export default function NavBar({ containerRef }: NavBarProps) {
 
   return (
     <Box component="nav">
-      {/* ClickAwayListener - 컴포넌트 외부를 클릭했을 때 특정 동작을 수행하고 싶을 때 사용 (하나의 자식 요소만 허용) */}
       <ClickAwayListener onClickAway={handleClickAway}>
         <Box sx={navBarStyles}>
           <NavBarContent
@@ -96,7 +93,6 @@ export default function NavBar({ containerRef }: NavBarProps) {
             openNavigator={openNavigator}
             startedScroll={startedScroll}
           />
-          {/* Collapse - 요소를 부드럽게 펼치고 접는 애니메이션을 제공하는 컴포넌트 (기본 수직, react-transition-group 내부적으로 사용) */}
           <Collapse in={isOpen}>
             <Box px={3}>
               <Divider />

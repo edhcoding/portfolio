@@ -9,13 +9,16 @@ import Divider from "@mui/material/Divider";
 
 export default function AboutSection() {
   return (
-    <Box id={Sections.ABOUT} sx={{ width: "100%", pt: 10 }}>
+    <Box id={Sections.ABOUT} component="section" width="100%" pt={10}>
       <Typography variant="h2">{Sections.ABOUT}.</Typography>
       <Divider orientation="horizontal" sx={{ mt: 1, mb: 3 }} />
       {aboutData.map((about) => (
         <Box
           key={about.title}
-          sx={{ display: "flex", flexDirection: "column", gap: 1, mb: 5 }}
+          mb={5}
+          gap={1}
+          display="flex"
+          flexDirection="column"
         >
           <Typography variant="h4">| {about.title}</Typography>
           <Typography

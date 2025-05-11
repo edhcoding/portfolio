@@ -8,17 +8,13 @@ import { MoreHoriz } from "@mui/icons-material";
 
 import { memo, useMemo } from "react";
 
-interface NavBarContentProps {
+interface Props {
   isMobile: boolean;
   openNavigator?: () => void;
   startedScroll: boolean;
 }
 
-const NavBarContent = ({
-  isMobile,
-  openNavigator,
-  startedScroll,
-}: NavBarContentProps) => {
+const NavBarContent = ({ isMobile, openNavigator, startedScroll }: Props) => {
   const typoStyles: SxProps = useMemo(
     () => ({
       color: startedScroll ? "primary.dark" : "primary.contrastText",
@@ -37,20 +33,18 @@ const NavBarContent = ({
 
   return (
     <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        width: "100%",
-        height: isMobile ? 50 : 60,
-        px: 3,
-      }}
+      px={3}
+      width="100%"
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      height={isMobile ? 50 : 60}
     >
       <Typography sx={typoStyles}>Portfolio</Typography>
       <IconButton onClick={openNavigator} disabled={!startedScroll}>
         <MoreHoriz sx={icBtnStyles} />
       </IconButton>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box display="flex" alignItems="center">
         <Typography sx={typoStyles}>by.</Typography>
         <img
           src="images/memoji.webp"

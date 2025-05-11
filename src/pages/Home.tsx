@@ -3,25 +3,17 @@ import { useRef } from "react";
 import TopNav from "@/components/NavBar";
 import Box from "@mui/material/Box";
 import HeroSection from "@/components/HeroSection";
-import Main from "@/components/Main";
+import MainSection from "@/components/MainSection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null!);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box width="100%">
       <TopNav containerRef={containerRef} />
-      <Box
-        ref={containerRef}
-        sx={{
-          height: "100vh",
-          width: "100vw",
-          overflowY: "auto",
-          overflowX: "hidden",
-        }}
-      >
+      <Box ref={containerRef} width="100vw" height="100vh" overflow="auto">
         <HeroSection />
-        <Main />
+        <MainSection />
       </Box>
     </Box>
   );

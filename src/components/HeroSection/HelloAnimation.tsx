@@ -24,7 +24,7 @@ export default function HelloAnimation() {
         transform="translate(311.08 476.02)"
         style={{
           fill: "none",
-          stroke: "#E7EFF6",
+          stroke: "#F9F9F9",
           strokeLinecap: "round",
           strokeMiterlimit: 10,
           strokeWidth: "35px",

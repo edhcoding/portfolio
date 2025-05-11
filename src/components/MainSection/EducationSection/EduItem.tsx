@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-import TextWithDot from "@/components/TextWithDot";
+import TextWithDot from "@/components/common/TextWithDot";
 import { FontWeightValues } from "@/types/styles";
 import { educationData } from "@/data/educationData";
 

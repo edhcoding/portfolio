@@ -1,8 +1,8 @@
-import AboutSection from "@/components/Main/AboutSection";
-import EducationSection from "@/components/Main/EducationSection";
+import AboutSection from "@/components/MainSection/AboutSection";
+import EducationSection from "@/components/MainSection/EducationSection";
 import Box from "@mui/material/Box";
 
-export default function Main() {
+export default function MainSection() {
   return (
     <Box component="main" position="sticky" top={0}>
       <Box

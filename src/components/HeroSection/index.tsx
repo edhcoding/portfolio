@@ -7,11 +7,12 @@ import useDeviceQuery from "@/hooks/useDeviceQuery";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import HelloAnimation from "@/components/HeroSection/HelloAnimation";
 import Card from "@/components/HeroSection/Card";
+import Typography from "@mui/material/Typography";
 import SkillList from "@/components/HeroSection/SkillList";
 import ContactInfo from "@/components/HeroSection/ContackInfo";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import HelloAnimation from "@/components/HeroSection/HelloAnimation";
 
 export default function HeroSection() {
   const { isMobile } = useDeviceQuery();
@@ -23,16 +24,16 @@ export default function HeroSection() {
 
   const renderTags = useMemo(
     () => (
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5, mt: 5 }}>
+      <Box display="flex" flexWrap="wrap" gap={0.5} mt={5}>
         {["프론트엔드", "UI/UX"].map((tag) => (
           <Box
             key={tag}
-            display="flex"
-            alignItems="center"
-            bgcolor="primary.dark"
             px={2}
             height={32}
+            display="flex"
             borderRadius="16px"
+            alignItems="center"
+            bgcolor="primary.dark"
             sx={{
               backdropFilter: "blur(1px)",
             }}
@@ -73,8 +74,8 @@ export default function HeroSection() {
       )}
       <Grid container rowSpacing={2} maxWidth="1024px" width="100%">
         {/* Section - Top */}
-        <Grid container spacing={2} size={{ xs: 12 }}>
-          <Grid size={{ xs: isMobile ? 12 : 4 }}>
+        <Grid container spacing={2} size={12}>
+          <Grid size={isMobile ? 12 : 4}>
             <Card
               index={0}
               bgImage="images/donghyuck.webp"
@@ -102,9 +103,9 @@ export default function HeroSection() {
               </Box>
             </Card>
           </Grid>
-          <Grid container spacing={2} size={{ xs: isMobile ? 12 : 8 }}>
-            <Grid container spacing={2} size={{ xs: 12 }}>
-              <Grid size={{ xs: 6 }}>
+          <Grid container spacing={2} size={isMobile ? 12 : 8}>
+            <Grid container spacing={2} size={12}>
+              <Grid size={6}>
                 <Card
                   index={1}
                   bgcolor="primary.light"
@@ -116,23 +117,23 @@ export default function HeroSection() {
                   <Typography
                     variant="h3"
                     lineHeight={1}
-                    color="primary.dark"
+                    color="text.primary"
                     fontWeight={FontWeightValues.EXTRA_BOLD}
                   >
                     프로젝트
                   </Typography>
                   <img
-                    src="images/Dark.webp"
+                    src="images/project.webp"
                     style={{
-                      width: "55%",
+                      width: "60%",
                       position: "absolute",
-                      top: 5,
-                      left: 15,
+                      top: 0,
+                      left: 0,
                     }}
                   />
                 </Card>
               </Grid>
-              <Grid size={{ xs: 6 }}>
+              <Grid size={6}>
                 <Card
                   index={2}
                   bgImage="images/me_grad.webp"
@@ -162,7 +163,7 @@ export default function HeroSection() {
                 </Card>
               </Grid>
             </Grid>
-            <Grid size={{ xs: 12 }}>
+            <Grid size={12}>
               <Card index={3} sx={{ px: 0 }}>
                 <img
                   src="images/memoji-lg.webp"
@@ -184,16 +185,16 @@ export default function HeroSection() {
                 </Typography>
                 <Typography
                   variant="h4"
-                  color="primary.dark"
-                  position="absolute"
                   right={32}
-                  whiteSpace="pre-wrap"
                   textAlign="end"
-                  sx={{
-                    ...(isMobile ? { top: 32 } : { bottom: 32 }),
-                  }}
+                  position="absolute"
+                  color="text.primary"
+                  whiteSpace="pre-wrap"
+                  top={isMobile ? 32 : undefined}
+                  bottom={isMobile ? undefined : 32}
+                  fontWeight={FontWeightValues.EXTRA_BOLD}
                 >
-                  {"더 나은 팀플레이어로 성장중인\nFE 엔지니어 은동혁입니다"}
+                  {"더 나은 팀플레이어로 성장중인\nFE 은동혁입니다"}
                 </Typography>
               </Card>
             </Grid>
@@ -201,41 +202,48 @@ export default function HeroSection() {
         </Grid>
 
         {/* Section - Skill List */}
-        <Grid container size={{ xs: 12 }}>
+        <Grid container size={12}>
           <SkillList />
         </Grid>
 
         {/* Section - Bottom */}
-        <Grid container spacing={2} size={{ xs: 12 }}>
-          <Grid size={{ xs: isMobile ? 12 : 8 }}>
+        <Grid container spacing={2} size={12}>
+          <Grid size={isMobile ? 12 : 8}>
             <Card
               index={4}
               bgcolor="#E7EFF6"
               onClick={() => onClickNavigator(Sections.EXPERIENCE)}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
             >
               <Box>
-                <Typography variant="h3" color="primary.dark">
+                <Typography variant="h4" color="primary.dark">
                   1년간의 성장
                 </Typography>
-                <Typography variant="body1" color="text.primary">
-                  부트캠프를 시작으로 현재까지 프로젝트 경험
-                </Typography>
+                <Box display="flex" alignItems="center" gap={1}>
+                  <Typography
+                    variant="body1"
+                    color="primary.dark"
+                    fontWeight={FontWeightValues.SEMI_BOLD}
+                  >
+                    부트캠프를 시작으로 현재까지 프로젝트 경험
+                  </Typography>
+                  <ArrowRightAltIcon
+                    fontSize="large"
+                    sx={{ color: "primary.dark" }}
+                  />
+                </Box>
               </Box>
-              <img
-                src="images/Team.webp"
-                style={{
-                  width: "90%",
-                  position: "absolute",
-                  bottom: "25px",
-                  left: isMobile ? "19px" : "35px",
-                }}
-              />
+              <img src="images/Team.webp" width="100%" alt="프로젝트 경험" />
             </Card>
           </Grid>
-          <Grid size={{ xs: isMobile ? 12 : 4 }}>
+          <Grid size={isMobile ? 12 : 4}>
             <Card
               index={5}
-              bgcolor="#334155"
+              bgcolor="text.primary"
               onClick={() => onClickNavigator(Sections.CONTACTS)}
             >
               <Typography

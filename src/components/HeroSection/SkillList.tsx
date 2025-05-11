@@ -3,9 +3,6 @@ import type { SkillItemType } from "@/types";
 import { FontWeightValues } from "@/types/styles";
 import { skillsData } from "@/data/skillsData";
 
-import { useMemo, useState } from "react";
-import useDeviceQuery from "@/hooks/useDeviceQuery";
-
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Zoom from "@mui/material/Zoom";
@@ -14,6 +11,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import Typography from "@mui/material/Typography";
 import LinearProgress from "@mui/material/LinearProgress";
+
+import { useMemo, useState } from "react";
+import useDeviceQuery from "@/hooks/useDeviceQuery";
 
 export default function SkillList() {
   const { isMobile } = useDeviceQuery();
@@ -77,27 +77,29 @@ export default function SkillList() {
             transition: Zoom,
           }}
           sx={{
-            borderRadius: "20px",
+            padding: 0,
+            "& .MuiPaper-root": {
+              borderRadius: "20px",
+              padding: "40px",
+            },
+            "& .MuiDialogTitle-root": {
+              padding: 0,
+              paddingBottom: 3,
+            },
           }}
         >
-          <DialogTitle
-            width="100%"
-            maxWidth="550px"
-            paddingX={5}
-            paddingTop={5}
-            paddingBottom={3}
-          >
+          <DialogTitle width="100%" maxWidth="550px" padding={0}>
             <Box display="flex" alignItems="center" gap={2} height="60px">
               <img
-                height={60}
+                height={70}
                 src={selectedSkill.image}
                 alt={selectedSkill.name}
               />
               <Box display="flex" flexDirection="column">
                 <Typography
-                  fontSize={20}
+                  fontSize={24}
                   color="primary.dark"
-                  fontWeight={FontWeightValues.BOLD}
+                  fontWeight={FontWeightValues.SEMI_BOLD}
                 >
                   {selectedSkill.name}
                 </Typography>
@@ -110,7 +112,7 @@ export default function SkillList() {
                         value={selectedSkill.rating > i ? 100 : 0}
                         sx={{
                           mt: 1,
-                          height: 10,
+                          height: 12,
                           borderRadius: 0,
                         }}
                       />
@@ -124,8 +126,7 @@ export default function SkillList() {
             sx={{
               width: "100%",
               maxWidth: "550px",
-              paddingX: 3,
-              paddingBottom: 3,
+              padding: 0,
             }}
           >
             {selectedSkill.description?.split("\n").map((line, idx) => (
