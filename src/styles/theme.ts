@@ -30,7 +30,7 @@ export default function getTheme(isMobile: boolean = false) {
         light: "#CBD5E1",
       },
       success: {
-        main: "#262626",
+        main: "#1e1e1e",
       },
       text: {
         primary: "#334155",

@@ -21,10 +21,11 @@ const NavBarContent = ({
 }: NavBarContentProps) => {
   const typoStyles: SxProps = useMemo(
     () => ({
+      color: startedScroll ? "primary.dark" : "primary.contrastText",
       fontSize: isMobile ? 18 : 22,
       fontWeight: FontWeightValues.BOLD,
     }),
-    [isMobile]
+    [isMobile, startedScroll]
   );
 
   const icBtnStyles: SxProps = useMemo(
@@ -52,7 +53,7 @@ const NavBarContent = ({
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Typography sx={typoStyles}>by.</Typography>
         <img
-          src="images/memoji.png"
+          src="images/memoji.webp"
           alt="미모지"
           style={{ width: "40px", marginTop: "2px", marginRight: "-8px" }}
         />
