@@ -1,6 +1,7 @@
 import type { ProjectItemType } from "@/types";
 
 export const projectsData: ProjectItemType[] = [
+  // 1
   {
     title: "Manchui(만취)",
     description: `만명이 함께하는 취미 활동 모임 플랫폼`,
@@ -110,6 +111,8 @@ export const projectsData: ProjectItemType[] = [
     ],
     cateTag: "협업 프로젝트",
   },
+
+  // 2
   {
     title: "Global-Nomad",
     description: `여행을 더욱 특별하게 만들어줄 체험 플랫폼`,
@@ -197,6 +200,8 @@ export const projectsData: ProjectItemType[] = [
     ],
     cateTag: "부트캠프 프로젝트",
   },
+
+  // 3
   {
     title: "Taskify",
     description: `Kanban 보드를 활용하여 효과적으로 일정을 관리할 수 있는 플랫폼`,
@@ -238,6 +243,8 @@ export const projectsData: ProjectItemType[] = [
     skills: ["ReactJS", "TypeScript", "Tanstack Query", "Jotai", "TailwindCSS"],
     cateTag: "부트캠프 프로젝트",
   },
+
+  // 4
   {
     title: "SurvForm",
     description: `온라인 설문지 생성, 공유 및 수집된 데이터 차트를 통한 분석 플랫폼`,
@@ -290,6 +297,8 @@ export const projectsData: ProjectItemType[] = [
     ],
     cateTag: "사이드 프로젝트",
   },
+
+  // 5
   {
     title: "Fandom-K",
     description: `아이돌 조공 플랫폼`,

@@ -24,7 +24,7 @@ export interface EduItemProps {
   descs: string[];
 }
 
-type DetailType = {
+export type DetailType = {
   content: string;
   type: "subtitle" | "text";
 };
