@@ -40,6 +40,9 @@ export default function getTheme(isMobile: boolean = false) {
         secondary: "#44698C",
         disabled: "#D7DEE5",
       },
+      info: {
+        main: "#334155",
+      },
     },
     typography: {
       fontFamily: [

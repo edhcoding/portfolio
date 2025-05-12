@@ -23,3 +23,19 @@ export interface EduItemProps {
   logoSrc: string;
   descs: string[];
 }
+
+type DetailType = {
+  content: string;
+  type: "subtitle" | "text";
+};
+
+export type ProjectItemType = {
+  title: string;
+  description: string;
+  details: DetailType[];
+  image: string;
+  link?: string;
+  skills: string[];
+  cateTag?: string;
+  isMobile?: boolean;
+};

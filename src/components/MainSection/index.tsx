@@ -1,6 +1,8 @@
+import Box from "@mui/material/Box";
+
 import AboutSection from "@/components/MainSection/AboutSection";
 import EducationSection from "@/components/MainSection/EducationSection";
-import Box from "@mui/material/Box";
+import ProjectSection from "@/components/MainSection/ProjectSection";
 
 export default function MainSection() {
   return (
@@ -14,6 +16,7 @@ export default function MainSection() {
         <Box mx="auto" maxWidth="1024px">
           <AboutSection />
           <EducationSection />
+          <ProjectSection />
         </Box>
       </Box>
       <Box>hi</Box>
