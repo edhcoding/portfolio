@@ -17,7 +17,7 @@ export default function ProjectFilter({
   const cateTags = useMemo(() => {
     const tags = projectsData
       .map((project) => project.cateTag)
-      .filter((tag) => tag !== undefined);
+      .filter((tag): tag is string => tag !== undefined);
 
     return [...new Set(tags)];
   }, [projectsData]);
@@ -29,7 +29,7 @@ export default function ProjectFilter({
           key={`tag-${tag}`}
           clickable
           label={tag}
-          color="secondary"
+          color="warning"
           onClick={() => setSelectedTag(tag)}
           variant={selectedTag === tag ? "filled" : "outlined"}
         />

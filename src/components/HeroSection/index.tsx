@@ -11,7 +11,7 @@ import Card from "@/components/HeroSection/Card";
 import Typography from "@mui/material/Typography";
 import SkillList from "@/components/HeroSection/SkillList";
 import ContactInfo from "@/components/HeroSection/ContackInfo";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+
 import HelloAnimation from "@/components/HeroSection/HelloAnimation";
 
 export default function HeroSection() {
@@ -220,24 +220,18 @@ export default function HeroSection() {
               }}
             >
               <Box>
-                <Typography variant="h4" color="primary.dark">
+                <Typography variant="h3" color="text.primary">
                   1년간의 성장
                 </Typography>
-                <Box display="flex" alignItems="center" gap={1}>
-                  <Typography
-                    variant="body1"
-                    color="primary.dark"
-                    fontWeight={FontWeightValues.SEMI_BOLD}
-                  >
-                    부트캠프를 시작으로 현재까지 프로젝트 경험
-                  </Typography>
-                  <ArrowRightAltIcon
-                    fontSize="large"
-                    sx={{ color: "primary.dark" }}
-                  />
-                </Box>
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  fontWeight={FontWeightValues.SEMI_BOLD}
+                >
+                  부트캠프를 시작으로 현재까지의 성장
+                </Typography>
               </Box>
-              <img src="images/Team.webp" width="100%" alt="프로젝트 경험" />
+              <img src="images/arrow.webp" width="100%" alt="프로젝트 경험" />
             </Card>
           </Grid>
           <Grid size={isMobile ? 12 : 4}>

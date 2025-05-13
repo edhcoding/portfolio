@@ -22,7 +22,7 @@ export default function ExpItem(
   const { title, subtitle, logoSrc, descs, isMobile } = props;
 
   return (
-    <Grid container={!isMobile} mb={5}>
+    <Grid container={!isMobile} mb={10}>
       <Grid size={5} mb={2}>
         <Box display="flex" alignItems="center">
           <img

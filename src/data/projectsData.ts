@@ -96,7 +96,7 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
     ],
-    image: "/images/projects/manchui.png",
+    image: "/images/projects/manchui.webp",
     link: "https://github.com/Manchui/Frontend",
     skills: [
       "ReactJS",
@@ -187,7 +187,7 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
     ],
-    image: "/images/projects/globalnomad.png",
+    image: "/images/projects/globalnomad.webp",
     link: "https://github.com/part4-team9/global-nomad",
     skills: [
       "ReactJS",
@@ -238,7 +238,7 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
     ],
-    image: "/images/projects/taskify.png",
+    image: "/images/projects/taskify.webp",
     link: "https://github.com/Team2-project/taskify",
     skills: ["ReactJS", "TypeScript", "Tanstack Query", "Jotai", "TailwindCSS"],
     cateTag: "부트캠프 프로젝트",
@@ -284,7 +284,7 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
     ],
-    image: "/images/projects/survform.png",
+    image: "/images/projects/survform.webp",
     link: "https://github.com/edhcoding/SurvForm",
     skills: [
       "ReactJS",
@@ -361,7 +361,7 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
     ],
-    image: "/images/projects/fandomk.png",
+    image: "/images/projects/fandomk.webp",
     link: "https://github.com/edhcoding/Fandom-k",
     skills: [
       "ReactJS",

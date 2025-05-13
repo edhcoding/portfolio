@@ -75,7 +75,7 @@ export default function NavBar({ containerRef }: Props) {
       transition: "all 0.2s ease-in-out",
       boxShadow: startedScroll ? "0px 0px 7px 2px rgba(0,0,0,0.1)" : "none",
       backdropFilter: startedScroll ? "blur(10px)" : "none",
-      opacity: startedScroll ? 1 : 0.7,
+      opacity: 1,
     }),
     [startedScroll, isMobile]
   );

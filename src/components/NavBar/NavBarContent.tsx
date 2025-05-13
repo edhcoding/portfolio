@@ -24,13 +24,6 @@ const NavBarContent = ({ isMobile, openNavigator, startedScroll }: Props) => {
     [isMobile, startedScroll]
   );
 
-  const icBtnStyles: SxProps = useMemo(
-    () => ({
-      opacity: startedScroll ? 1 : 0.7,
-    }),
-    [startedScroll]
-  );
-
   return (
     <Box
       px={3}
@@ -42,9 +35,9 @@ const NavBarContent = ({ isMobile, openNavigator, startedScroll }: Props) => {
     >
       <Typography sx={typoStyles}>Portfolio</Typography>
       <IconButton onClick={openNavigator} disabled={!startedScroll}>
-        <MoreHoriz sx={icBtnStyles} />
+        <MoreHoriz />
       </IconButton>
-      <Box display="flex" alignItems="center">
+      <Box sx={{ display: "flex", alignItems: "center" }}>
         <Typography sx={typoStyles}>by.</Typography>
         <img
           src="images/memoji.webp"

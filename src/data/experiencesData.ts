@@ -4,7 +4,7 @@ export const experiencesData: ExpItemType[] = [
   {
     title: "프론트엔드 부트캠프 6기",
     subtitle: ["CODEIT, 2024.03 - 2024.09 (6개월)", "팀 프로젝트 3회"],
-    logoSrc: "/images/logo/codeit.jpeg",
+    logoSrc: "/images/logo/codeit.webp",
     descs: [
       // 학습
       {
@@ -58,7 +58,7 @@ export const experiencesData: ExpItemType[] = [
       "CODEIT, 2024.09 - 2024.11 (2개월)",
       "협업 프로젝트 1회 (F • B • D)",
     ],
-    logoSrc: "/images/logo/codeit.jpeg",
+    logoSrc: "/images/logo/codeit.webp",
     descs: [
       // 학습
       {

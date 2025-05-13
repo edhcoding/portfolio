@@ -43,6 +43,9 @@ export default function getTheme(isMobile: boolean = false) {
       info: {
         main: "#334155",
       },
+      warning: {
+        main: "#334155",
+      },
     },
     typography: {
       fontFamily: [

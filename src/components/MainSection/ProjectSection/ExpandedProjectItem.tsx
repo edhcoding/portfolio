@@ -149,7 +149,7 @@ export default function ExpandedProjectItem({
                 label={cateTag}
                 clickable
                 size="small"
-                color="info"
+                color="warning"
                 sx={{ mr: 1, mt: 1 }}
               />
               {skills.map((skill) => {
@@ -159,7 +159,6 @@ export default function ExpandedProjectItem({
                     label={skill}
                     clickable
                     size="small"
-                    color="secondary"
                     sx={{ mr: 1, mt: 1 }}
                   />
                 );

@@ -4,6 +4,7 @@ import AboutSection from "@/components/MainSection/AboutSection";
 import EducationSection from "@/components/MainSection/EducationSection";
 import ExperienceSection from "@/components/MainSection/ExperienceSection";
 import ProjectSection from "@/components/MainSection/ProjectSection";
+import ContactSection from "@/components/MainSection/ContactSection";
 
 export default function MainSection() {
   return (
@@ -21,8 +22,7 @@ export default function MainSection() {
           <ProjectSection />
         </Box>
       </Box>
-      <Box>hi</Box>
-      <Box>hi</Box>
+      <ContactSection />
     </Box>
   );
 }
