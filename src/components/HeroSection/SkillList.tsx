@@ -1,22 +1,16 @@
 import type { SxProps, Theme } from "@mui/material/styles";
 import type { SkillItemType } from "@/types";
-import { FontWeightValues } from "@/types/styles";
 import { skillsData } from "@/data/skillsData";
 
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Zoom from "@mui/material/Zoom";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import Typography from "@mui/material/Typography";
-import LinearProgress from "@mui/material/LinearProgress";
 
 import { useMemo, useState } from "react";
 import useDeviceQuery from "@/hooks/useDeviceQuery";
+import ExpandedSkillItem from "@/components/HeroSection/ExpandedSkillItem";
 
 export default function SkillList() {
   const { isMobile } = useDeviceQuery();
+  const [open, setOpen] = useState<boolean>(false);
   const [selectedSkill, setSelectedSkill] = useState<SkillItemType | null>(
     null
   );
@@ -55,95 +49,30 @@ export default function SkillList() {
     [isMobile]
   );
 
+  const handleSkillClick = (skill: SkillItemType) => {
+    setSelectedSkill(skill);
+    setOpen(true);
+  };
+
   return (
     <Box overflow="hidden" borderRadius="20px" position="relative">
+      <ExpandedSkillItem
+        open={open}
+        isMobile={isMobile}
+        onClose={() => setOpen(false)}
+        {...selectedSkill}
+      />
       <Box sx={scrollAnimation}>
         {[...skillsData, ...skillsData].map((skill, idx) => (
           <Box
             key={skill.name + idx}
             sx={cardStyles}
-            onClick={() => setSelectedSkill(skill)}
+            onClick={() => handleSkillClick(skill)}
           >
             <img src={skill.image} height={40} alt={skill.name} />
           </Box>
         ))}
       </Box>
-      {selectedSkill && !isMobile && (
-        <Dialog
-          open={!!selectedSkill}
-          onClose={() => setSelectedSkill(null)}
-          hideBackdrop
-          slots={{
-            transition: Zoom,
-          }}
-          sx={{
-            padding: 0,
-            "& .MuiPaper-root": {
-              borderRadius: "20px",
-              padding: "40px",
-            },
-            "& .MuiDialogTitle-root": {
-              padding: 0,
-              paddingBottom: 3,
-            },
-          }}
-        >
-          <DialogTitle width="100%" maxWidth="550px" padding={0}>
-            <Box display="flex" alignItems="center" gap={2} height="60px">
-              <img
-                height={70}
-                src={selectedSkill.image}
-                alt={selectedSkill.name}
-              />
-              <Box display="flex" flexDirection="column">
-                <Typography
-                  fontSize={24}
-                  color="primary.dark"
-                  fontWeight={FontWeightValues.SEMI_BOLD}
-                >
-                  {selectedSkill.name}
-                </Typography>
-                <Grid container width="100%" spacing={0.5} flexWrap="nowrap">
-                  {[...Array(5)].map((_, i) => (
-                    <Grid key={`${selectedSkill.name}-star-${i}`} width="50px">
-                      <LinearProgress
-                        color="primary"
-                        variant="determinate"
-                        value={selectedSkill.rating > i ? 100 : 0}
-                        sx={{
-                          mt: 1,
-                          height: 12,
-                          borderRadius: 0,
-                        }}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              </Box>
-            </Box>
-          </DialogTitle>
-          <DialogContent
-            sx={{
-              width: "100%",
-              maxWidth: "550px",
-              padding: 0,
-            }}
-          >
-            {selectedSkill.description?.split("\n").map((line, idx) => (
-              <Typography
-                key={idx}
-                variant="body2"
-                fontSize={18}
-                lineHeight={1.7}
-                color="primary.dark"
-                fontWeight={FontWeightValues.MEDIUM}
-              >
-                {line}
-              </Typography>
-            ))}
-          </DialogContent>
-        </Dialog>
-      )}
     </Box>
   );
 }
