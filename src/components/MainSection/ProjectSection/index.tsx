@@ -23,7 +23,7 @@ export default function ProjectSection() {
   }, [selectedTag]);
 
   return (
-    <Box id={Sections.PROJECTS} pt={isMobile ? 10 : 20}>
+    <Box id={Sections.PROJECTS} pt={15}>
       <Typography variant="h2">{Sections.PROJECTS}.</Typography>
       <Divider orientation="horizontal" sx={{ mt: 1, mb: 3 }} />
       <ProjectFilter

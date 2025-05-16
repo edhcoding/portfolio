@@ -7,44 +7,44 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 
-import useDeviceQuery from "@/hooks/useDeviceQuery";
+import TextWithDot from "@/components/common/TextWithDot";
+
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 
 export default function AboutSection() {
-  const { isMobile } = useDeviceQuery();
-
   return (
-    <Box
-      id={Sections.ABOUT}
-      component="section"
-      width="100%"
-      pt={isMobile ? 10 : 20}
-    >
+    <Box id={Sections.ABOUT} component="section" width="100%" pt={10}>
       <Typography variant="h2">{Sections.ABOUT}.</Typography>
       <Divider orientation="horizontal" sx={{ mt: 1, mb: 3 }} />
       {aboutData.map((about) => (
         <Box
           key={about.title}
-          mb={5}
+          mb={7}
           gap={1}
           display="flex"
           flexDirection="column"
         >
-          <Typography variant="h4">| {about.title}</Typography>
+          <Box display="flex" alignItems="center" gap={1}>
+            <LocalOfferIcon color="info" />
+            <Typography variant="h4">{about.title}</Typography>
+          </Box>
           <Typography
             variant="body1"
             fontWeight={FontWeightValues.BOLD}
             color={"text.secondary"}
           >
-            {about.subtitle}
+            | {about.subtitle}
           </Typography>
-          <Typography
-            variant="body2"
-            whiteSpace="pre-wrap"
-            lineHeight={1.8}
-            fontWeight={FontWeightValues.SEMI_BOLD}
-          >
-            {about.content}
-          </Typography>
+          {about.content.map((text, index) => (
+            <TextWithDot
+              key={index}
+              variant="body1"
+              lineHeight={1.8}
+              fontWeight={FontWeightValues.SEMI_BOLD}
+            >
+              {text}
+            </TextWithDot>
+          ))}
         </Box>
       ))}
     </Box>

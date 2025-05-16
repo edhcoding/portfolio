@@ -67,7 +67,7 @@ export const experiencesData: ExpItemType[] = [
       },
       {
         content:
-          "Tailwind CSS 학습 (유틸리티 클래스 기반 스타일링, 커스텀 스타일, 다크모드)",
+          "Tailwind CSS 학습 (유틸리티 클래스 기반 스타일링, 커스텀 스타일, 반응형 디자인)",
         type: "text",
       },
       {
@@ -75,8 +75,7 @@ export const experiencesData: ExpItemType[] = [
         type: "text",
       },
       {
-        content:
-          "CI/CD 학습 (자동 빌드 • 배포 시스템, GitHub Actions, Cypress)",
+        content: "CI/CD 학습 (GitHub Actions)",
         type: "text",
       },
       // 프로젝트

@@ -68,7 +68,8 @@ export default function ExpItem(
           return (
             <Typography
               key={`project-${title}-detail-${idx}`}
-              my={1}
+              mt={idx !== 0 ? 3 : 0}
+              mb={1}
               variant="body1"
               color="text.primary"
               fontSize={18}

@@ -117,13 +117,16 @@ export default function ExpandedSkillItem({
             DESC
           </Divider>
           <Box py={1}>
-            <TextWithDot
-              color="success"
-              fontSize={18}
-              fontWeight={FontWeightValues.MEDIUM}
-            >
-              {description}
-            </TextWithDot>
+            {description?.map((desc, idx) => (
+              <TextWithDot
+                key={`skill-desc-${idx}`}
+                color="success"
+                fontSize={18}
+                fontWeight={FontWeightValues.MEDIUM}
+              >
+                {desc}
+              </TextWithDot>
+            ))}
           </Box>
         </Collapse>
       </Box>

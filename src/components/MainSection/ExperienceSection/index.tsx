@@ -13,7 +13,7 @@ export default function ExperienceSection() {
   const { isMobile } = useDeviceQuery();
 
   return (
-    <Box id={Sections.EXPERIENCE} pt={isMobile ? 10 : 20}>
+    <Box id={Sections.EXPERIENCE} pt={15}>
       <Typography variant="h2">{Sections.EXPERIENCE}.</Typography>
       <Divider orientation="horizontal" sx={{ mt: 1, mb: 3 }} />
 
