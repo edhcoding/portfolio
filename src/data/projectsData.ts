@@ -10,6 +10,8 @@ export const projectsData: ProjectItemType[] = [
       {
         content:
           "팀장 역할을 맡아 프로젝트 세팅 및 Notion을 활용한 문서화, 프로젝트 일정 관리 진행",
+        // 프로젝트 초기 세팅을 주도했으며, Notion을 활용한 컨벤션 정의 및 프로젝트 일정 관리, 문서화 진행
+        // 특히 ESLint, Prettier 규칙을 커스텀하여 일관된 코드 품질과 스타일 유지 및 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상
         type: "text",
       },
       {
@@ -20,6 +22,7 @@ export const projectsData: ProjectItemType[] = [
       {
         content:
           "Tailwind CSS config 커스텀으로 일관된 디자인 시스템 구축 및 유지보수성 향상",
+        // 기존 Tailwind CSS 설정에서 폰트, 색상, 미디어 쿼리 등 커스텀해 일관된 디자인 시스템 구축
         type: "text",
       },
 
@@ -27,6 +30,14 @@ export const projectsData: ProjectItemType[] = [
       {
         content:
           "실시간으로 변동되는 모임 데이터의 특성을 고려하여, 기존 Offset 기반 페이지네이션에서 Cursor 기반 페이지네이션으로 변경을 제안 및 구현. 이를 통해 모임 생성/종료/삭제로 인한 데이터 변동에도 안정적인 무한 스크롤 구현",
+        /**
+         * Offset 기반 페이지네이션
+         * - 데이터베이스에서 특정 위치(offset) 부터 일정 개수(limit)만큼 데이터를 가져오는 방식입니다.
+         * - 장점은 구현이 간단하고 직관적이지만 단점으로 데이터가 삭제/추가가 발생할 때 중복이나 누락이 발생 가능함
+         * Cursor 기반 페이지네이션
+         * - 특정 기준점(cursor)을 기준으로 그 이후의 데이터를 가져오는 방식입니다.
+         * - 장점으로는 실시간 데이터 변동에 안정적이고 무한 스크롤 구현에 적합합니다. 단점으로는 구현이 상대적으로 복잡하다는 단점이 있습니다.
+         */
         type: "text",
       },
       {
@@ -38,6 +49,7 @@ export const projectsData: ProjectItemType[] = [
          * - 서버에서 클라이언트로 단방향 실시간 데이터 스트리밍을 가능하게 하는 기술입니다.
          * - HTTP 프로토콜을 기반으로 하며, 서버가 클라이언트에게 자동으로 데이터를 푸시할 수 있습니다.
          * - 만취 프로젝트에서는 SSE를 실시간 알림 시스템에 활용했습니다. 사용자가 새로운 알림을 받았을 때, 서버가 클라이언트에게 자동으로 알림 데이터를 전송하고, 클라이언트는 이를 실시간으로 알림을 렌더링하는 방식으로 구현했습니다.
+         *
          * WebSocket
          * - 클라이언트와 서버 간의 양방향 실시간 통신을 가능하게 하는 프로토콜입니다.
          * - HTTP와 달리 한 번의 연결로 지속적인 양방향 통신이 가능합니다.
@@ -52,14 +64,15 @@ export const projectsData: ProjectItemType[] = [
          * 사용자 경험을 개선하기 위해 낙관적 업데이트 패턴을 적용하였습니다.
          *
          * useMutaion의 onMutate 콜백을 통해 (mutation이 실행되기 전)
-         * cancelQueries로 진행 중인 모든 쿼리 요청을 취소 했고
-         * getQueryData로 현재 상태를 저장해두어 롤백이 필요할 때 사용할 수 있게 했고
-         * setQueryData로 UI를 즉시 업데이트하여 사용자에게 즉각적인 피드백을 제공하였습니다.
+         * - cancelQueries로 진행 중인 쿼리 요청을 취소
+         * - getQueryData로 현재 상태를 저장해두어 롤백이 필요할 때 사용할 수 있게 했고
+         * - setQueryData로 UI를 즉시 업데이트하여 사용자에게 즉각적인 피드백을 제공하였습니다.
          *
-         * 에러가 발생할 경우를 대비해 onError 콜백에서 setQueryData를 통해 context(3번째 파라미터)에 저장해둔 이전 상태를 사용해 롤백 처리를 구현했습니다.
+         * 에러가 발생할 경우 onError 콜백에서
+         * - setQueryData를 통해 context(3번째 파라미터)에 저장해둔 이전 상태를 사용해 롤백 처리를 구현했습니다.
          *
-         * 마지막으로 onSettled 콜백에서 (mutation이 실행된 후)
-         * invalidateQueries(캐시 무효화)를 호출하여 서버와 클라이언트의 데이터를 동기화했습니다.
+         * onSettled 콜백에서 (mutation이 실행된 후 - 실패/성공 여부 상관없이 실행)
+         * - invalidateQueries(캐시 무효화)를 호출하여 서버와 클라이언트의 데이터를 동기화했습니다.
          *
          * 이렇게 구현함으로써 사용자는 즉각적인 피드백을 받으면서도, 데이터의 정확성도 유지할 수 있게 되었습니다.
          */
@@ -68,12 +81,26 @@ export const projectsData: ProjectItemType[] = [
       {
         content:
           "Zustand를 활용한 전역 상태 관리로 검색, 필터링, 정렬 기능 모듈화 및 상태 관리 로직 분리",
+        /**
+         * Zustand를 선택한 이유
+         * - 빠른 프로토타입 개발을 하기 위해 러닝 커브가 비교적 낮고 보일러플레이트 코드가 없음(provider), 더 작은 번들 사이즈(Redux, recoil 보다 작음), 커뮤니티 생태계가 크기에 더 많은 자료 존재
+         */
         type: "text",
       },
       {
-        content: "Debounce 처리와 Zustand를 활용한 검색 기능 최적화",
-        // debounce : 마지막 작업이 수행된 후 일정 시간이 지난 후 API 호출 (검색어 입력 최적화, 스크롤 이벤트 처리, 리사이즈 이벤트 제어)
-        // throttle : 이벤트의 발생 빈도를 일정한 시간 간격으로 제한해 과도한 이벤트 처리 방지 (여러 이벤트 발생해도 하나만 실행 - 스크롤 이벤트 처리, 리사이즈 이벤트 제어)
+        content: "검색 기능에 Debounce 패턴을 적용하여 무분별한 API 호출 방지",
+        // 사용자가 검색어 입력할 때마다 API 호출 발생 -> 검색어 입력 후 엔터키를 누르면 검색 결과 호출하는 방식 고민(UX 측면에서 좋지 않음) -> debounce 패턴을 적용해 일정 시간 지난 후에 API 호출 하는 방식 선택(사용자 경험과 성능 측면에서 모두 개선된다고 판단)
+        /**
+         * 디바운스(Debounce)와 쓰로틀(Throttle)은 둘 다 함수의 연속적인 실행을 제한하는 목적을 갖고서 설계
+         * Debounce
+         * - 사용자가 연속적으로 이벤트를 발생시킬 때, 마지막 이벤트가 발생한 후 일정 시간이 지난 후에 한 번만 실행되도록 하는 개념입니다.
+         * - 검색어 입력 시 API 호출, 윈도우 리사이즈 이벤트, 폼 입력 유효성 검사
+         *
+         * Throttle
+         * - 일정 시간 간격으로 이벤트를 실행하는 개념입니다.
+         * - 첫 이벤트가 발생하면 실행하고, 그 후 일정 시간 동안은 추가 이벤트를 무시합니다.
+         * - 스크롤 이벤트 무시, 연속적인 키 입력 제한, API 호출 제한
+         */
         type: "text",
       },
       {
@@ -94,6 +121,11 @@ export const projectsData: ProjectItemType[] = [
       },
 
       { content: "성능 최적화 (Lighthouse 60점 -> 96점)", type: "subtitle" },
+      /**
+       * bundle-analyzer 툴을 이용해 번들 사이즈를 확인하고 코드 스플리팅 및 lottie-react에서 react-lottie-light로 교체해 번들 사이즈 약 32% 감소
+       * 라이프사이클 최적화를 통해 React 컴포넌트의 생명주기를 최적화하고 불필요한 리렌더링을 방지하여 성능 향상
+       * - 메모이제이션(memo, useMemo, useCallback) 진행, 코드 스플리팅(Dynamic import), 이미지 최적화(webp 변환, blur(blurDataURL) 적용으로 이미지 로딩시 블러 효과 적용 후 원본 이미지 로딩)
+       */
       {
         content:
           "bundle-analyzer 툴을 이용해 코드 스플리팅 및 lottie-react에서 react-lottie-light로 교체해 번들 사이즈 약 32% 감소",
@@ -283,7 +315,7 @@ export const projectsData: ProjectItemType[] = [
       },
       {
         content:
-          "복잡한 폼 구조와 다수의 input을 효율적으로 관리하기 위해 React Hook Form 도입. 비제어 컴포넌트로 성능을 최적화하고, register 함수를 통해 모든 input을 하나의 객체로 관리하여 코드 복잡도를 낮춤",
+          "복잡한 폼 구조와 input을 효율적으로 관리하기 위해 React Hook Form 도입. 비제어 컴포넌트 방식으로 성능을 최적화하고, register 함수를 통해 모든 input을 하나의 객체로 관리하여 코드 복잡도 감소",
         /**
          * 1. 제어 컴포넌트
          * React의 state를 통해 폼 데이터를 관리하는 방식입니다.
@@ -338,7 +370,7 @@ export const projectsData: ProjectItemType[] = [
       },
       {
         content:
-          "Layout Navbar 컴포넌트 구현 및 Webp 이미지 포맷 변환을 통한 성능 최적화",
+          "Layout Navbar 컴포넌트 구현 및 이미지 Webp 포맷 변환을 통한 성능 최적화",
         type: "text",
       },
     ],
