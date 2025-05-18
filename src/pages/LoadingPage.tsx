@@ -1,8 +1,6 @@
-interface Props {
-  error: Error;
-}
+import { RingLoader } from "react-spinners";
 
-export default function ErrorPage({ error }: Props) {
+export default function LoadingPage() {
   return (
     <div
       style={{
@@ -12,12 +10,9 @@ export default function ErrorPage({ error }: Props) {
         alignItems: "center",
         height: "100vh",
         backgroundColor: "#1e1e1e",
-        color: "#F9F9F9",
-        textAlign: "center",
       }}
     >
-      <h1>⚠️ Error</h1>
-      <p style={{ fontSize: "24px", fontWeight: "bold" }}>{error.message}</p>
+      <RingLoader color="#F9F9F9" size={60} />
     </div>
   );
 }
