@@ -9,7 +9,12 @@ export const projectsData: ProjectItemType[] = [
       { content: "프로젝트 세팅", type: "subtitle" },
       {
         content:
-          "ESLint, Prettier 규칙을 커스텀하여 코드 품질 자동화 및 개발자 경험(DX) 향상",
+          "팀장 역할을 맡아 프로젝트 세팅 및 Notion을 활용한 문서화, 프로젝트 일정 관리 진행",
+        type: "text",
+      },
+      {
+        content:
+          "ESLint, Prettier 규칙 커스텀하여 일관된 코드 품질과 스타일 유지 및 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상",
         type: "text",
       },
       {
@@ -17,82 +22,101 @@ export const projectsData: ProjectItemType[] = [
           "Tailwind CSS config 커스텀으로 일관된 디자인 시스템 구축 및 유지보수성 향상",
         type: "text",
       },
+
+      { content: "주요 기능 개발", type: "subtitle" },
+      {
+        content:
+          "실시간으로 변동되는 모임 데이터의 특성을 고려하여, 기존 Offset 기반 페이지네이션에서 Cursor 기반 페이지네이션으로 변경을 제안 및 구현. 이를 통해 모임 생성/종료/삭제로 인한 데이터 변동에도 안정적인 무한 스크롤 구현",
+        type: "text",
+      },
+      {
+        content:
+          "SSE(Server-Sent-Event)와 WebSocket을 활용한 실시간 알림 및 채팅 시스템 구현",
+        /**
+         * 실시간 알림과 채팅을 위해 SSE와 WebSocket을 각각 활용했습니다. SSE는 단방향 알림에 적합하고, WebSocket은 양방향 채팅에 적합하다는 점을 고려하여 선택했습니다.
+         * SSE
+         * - 서버에서 클라이언트로 단방향 실시간 데이터 스트리밍을 가능하게 하는 기술입니다.
+         * - HTTP 프로토콜을 기반으로 하며, 서버가 클라이언트에게 자동으로 데이터를 푸시할 수 있습니다.
+         * - 만취 프로젝트에서는 SSE를 실시간 알림 시스템에 활용했습니다. 사용자가 새로운 알림을 받았을 때, 서버가 클라이언트에게 자동으로 알림 데이터를 전송하고, 클라이언트는 이를 실시간으로 알림을 렌더링하는 방식으로 구현했습니다.
+         * WebSocket
+         * - 클라이언트와 서버 간의 양방향 실시간 통신을 가능하게 하는 프로토콜입니다.
+         * - HTTP와 달리 한 번의 연결로 지속적인 양방향 통신이 가능합니다.
+         * - 만취 프로젝트에서는 WebSocket을 실시간 채팅 시스템에 활용했습니다. 사용자들이 모임 채팅방에서 메시지를 주고받을 때, 서버와 클라이언트 간의 지속적인 양방향 통신이 필요했기 때문입니다.
+         */
+        type: "text",
+      },
+      {
+        content:
+          "실시간 피드백을 위해 찜하기 버튼, 알림 삭제 버튼에 낙관적 업데이트 패턴 도입 및 MouseEvent, TouchEvent를 통합 관리하는 커스텀 훅을 구현하여 제스처 기반 알림삭제 기능 개발 및 크로스 플랫폼 호환을 위해 고민",
+        /**
+         * 사용자 경험을 개선하기 위해 낙관적 업데이트 패턴을 적용하였습니다.
+         *
+         * useMutaion의 onMutate 콜백을 통해 (mutation이 실행되기 전)
+         * cancelQueries로 진행 중인 모든 쿼리 요청을 취소 했고
+         * getQueryData로 현재 상태를 저장해두어 롤백이 필요할 때 사용할 수 있게 했고
+         * setQueryData로 UI를 즉시 업데이트하여 사용자에게 즉각적인 피드백을 제공하였습니다.
+         *
+         * 에러가 발생할 경우를 대비해 onError 콜백에서 setQueryData를 통해 context(3번째 파라미터)에 저장해둔 이전 상태를 사용해 롤백 처리를 구현했습니다.
+         *
+         * 마지막으로 onSettled 콜백에서 (mutation이 실행된 후)
+         * invalidateQueries(캐시 무효화)를 호출하여 서버와 클라이언트의 데이터를 동기화했습니다.
+         *
+         * 이렇게 구현함으로써 사용자는 즉각적인 피드백을 받으면서도, 데이터의 정확성도 유지할 수 있게 되었습니다.
+         */
+        type: "text",
+      },
+      {
+        content:
+          "Zustand를 활용한 전역 상태 관리로 검색, 필터링, 정렬 기능 모듈화 및 상태 관리 로직 분리",
+        type: "text",
+      },
+      {
+        content: "Debounce 처리와 Zustand를 활용한 검색 기능 최적화",
+        // debounce : 마지막 작업이 수행된 후 일정 시간이 지난 후 API 호출 (검색어 입력 최적화, 스크롤 이벤트 처리, 리사이즈 이벤트 제어)
+        // throttle : 이벤트의 발생 빈도를 일정한 시간 간격으로 제한해 과도한 이벤트 처리 방지 (여러 이벤트 발생해도 하나만 실행 - 스크롤 이벤트 처리, 리사이즈 이벤트 제어)
+        type: "text",
+      },
+      {
+        content:
+          "createPortal을 활용한 모달 컴포넌트 제작 및 useModal 커스텀 훅 개발로 재사용성 향상 및 로직 모듈화",
+        type: "text",
+      },
+      {
+        content:
+          "외부 라이브러리 없이 React Hook과 Date 객체를 활용한 커스텀 캘린더 컴포넌트 구현 및 단일/범위 선택 기능 지원하도록 구현",
+        type: "text",
+      },
+      {
+        content:
+          "Framer Motion의 AnimatePresence 컴포넌트의 exit 속성을 통해 페이지 전환 시 부드러운 페이지 전환 애니메이션 구현",
+        // AnimatePresence - exit 속성을 통해 React 컴포넌트가 DOM에서 제거될 때 애니메이션을 처리하는 컴포넌트
+        type: "text",
+      },
+
       { content: "성능 최적화 (Lighthouse 60점 -> 96점)", type: "subtitle" },
       {
         content:
-          "Code Splitting과 이미지 최적화를 적용하여 초기 로딩 시간 2.8s~0.2s(90%) 단축",
+          "bundle-analyzer 툴을 이용해 코드 스플리팅 및 lottie-react에서 react-lottie-light로 교체해 번들 사이즈 약 32% 감소",
         type: "text",
       },
       {
         content:
-          "bundle-analyzer를 통한 프로젝트 번들 크기 최적화 진행, lottie-light-react와 같은 가벼운 라이브러리 교체 및 트리 쉐이킹, type only import를 통한 번들 사이즈 25% 감소",
+          "초기 로드 속도 개선을 위한 라이프사이클 최적화, 이미지 최적화 등의 작업을 통해 초기 로딩 시간을 2.8s -> 1.3s(53%)로 단축",
         type: "text",
       },
       {
         content:
-          "페이지별 SEO 관리를 위한 재사용 가능한 메타 태그 컴포넌트 구현 및 SEO 최적화",
+          "Tanstack Query의 캐싱 전략과 데이터 프리페칭을 통해 초기 로딩 시간 최적화",
         type: "text",
       },
       {
         content:
-          "Tanstack Query의 캐싱 전략과 데이터 프리페칭을 통해 초기 로딩 시간 감소",
-        type: "text",
-      },
-      { content: "메인 페이지", type: "subtitle" },
-      {
-        content:
-          "실시간 모임 데이터를 위해 Offset 기반에서 Cursor 기반 페이지네이션으로 전환하여 데이터 중복, 누락등의 문제 개선 및 무한 스크롤 구현",
-        type: "text",
-      },
-      {
-        content: "검색창 최적화를 통해 무분별한 API 호출 억제",
-        type: "text",
-      },
-      {
-        content: "JavaScript Date를 이용한 캘린더 컴포넌트 개발",
-        type: "text",
-      },
-      {
-        content: "효율적인 상태 관리를 위해 Zustand 도입 및 전역 상태 관리",
+          "SEO 컴포넌트 개발로 페이지별 메타 태그 관리 및 Open Graph, Twitter Card 지원",
         type: "text",
       },
       {
         content:
-          "즉각적인 피드백 위해 낙관적 업데이트 패턴 도입 찜하기 기능 구현",
-        type: "text",
-      },
-      { content: "GNB", type: "subtitle" },
-      {
-        content:
-          "실시간 알림 시스템 기능을 위한 SSE(Server-Sent-Event) 기반 데이터 스트리밍 구현",
-        type: "text",
-      },
-      {
-        content:
-          "모바일 사용성 개선을 위해 제스처(스와이프) 기반 알림 삭제 기능 구현",
-        type: "text",
-      },
-      {
-        content: "즉각적인 피드백 위해 낙관적 업데이트 패턴 적용",
-        type: "text",
-      },
-      { content: "모임 상세 페이지", type: "subtitle" },
-      {
-        content: "실시간 소통을 위한 Websocket 기반 채팅 시스템 구축",
-        type: "text",
-      },
-      {
-        content: "사용자 경험을 위한 익숙한 kakao 기반 채팅 디자인 시스템 구현",
-        type: "text",
-      },
-      { content: "애니메이션 및 페이지 전환", type: "subtitle" },
-      {
-        content:
-          "Next.js getLayout 패턴을 활용한 페이지별 레이아웃 컴포넌트 구현",
-        type: "text",
-      },
-      {
-        content: "Framer Motion을 활용한 부드러운 페이지 전환 애니메이션 구현",
+          "Skeleton UI 제작해 UX 개선 및 CLS(Cumulative Layout Shift) 0으로 수렴",
         type: "text",
       },
     ],
@@ -120,7 +144,7 @@ export const projectsData: ProjectItemType[] = [
       { content: "프로젝트 세팅", type: "subtitle" },
       {
         content:
-          "초기 프로젝트 세팅 시 ESLint, Prettier 규칙을 커스텀하여 코드 품질 자동화 및 개발자 경험(DX) 향상",
+          "ESLint, Prettier 규칙을 커스텀하여 일관된 코드 품질과 스타일 유지 및 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상",
         type: "text",
       },
       {
@@ -128,62 +152,50 @@ export const projectsData: ProjectItemType[] = [
           "Tailwind CSS config 확장 관리로 일관된 디자인 시스템 구축 및 유지보수성 향상",
         type: "text",
       },
+
+      { content: "주요 기능 개발", type: "subtitle" },
+      {
+        content:
+          "프로젝트 기간 내 빠른 MVP 확보를 위해 번들 사이즈(6.9KB)가 작고 제스처 지원이 우수한 embla-carousel 도입으로 성능과 UX 최적화",
+        type: "text",
+      },
+      {
+        content:
+          "Intersection Observer API를 활용한 useIntersectionObserver 커스텀 훅 개발로 무한 스크롤 구현 및 재사용성 향상",
+        type: "text",
+      },
+      {
+        content:
+          "usePagination 커스텀 훅과 Pagination 컴포넌트 구현으로 페이지네이션 로직 모듈화 및 재사용성 향상",
+        type: "text",
+      },
+      {
+        content:
+          "Debounce를 활용한 window.innerWidth 감지 커스텀 훅을 구현하여 디바이스 크기에 따른 데이터 패칭 개수 조절로 UX 개선",
+        // debounce : 마지막 작업이 수행된 후 일정 시간이 지난 후 API 호출 (검색어 입력 최적화, 스크롤 이벤트 처리, 리사이즈 이벤트 제어)
+        // throttle : 이벤트의 발생 빈도를 일정한 시간 간격으로 제한해 과도한 이벤트 처리 방지 (여러 이벤트 발생해도 하나만 실행 - 스크롤 이벤트 처리, 리사이즈 이벤트 제어)
+        type: "text",
+      },
+      {
+        content:
+          "createPortal을 활용한 모달 컴포넌트 구현 및 useModal 커스텀 훅 개발로 재사용성 향상 및 로직 분리",
+        type: "text",
+      },
+
       { content: "성능 최적화", type: "subtitle" },
       {
         content:
-          "Tanstack Query의 캐싱 전략과 데이터 프리페칭을 통해 초기 로딩 시간 2.5s에서 0.9s로 64% 개선",
+          "라이프 사이클 최적화, 이미지 최적화, Dynamic import를 통해 초기 로딩 시간 2.5s에서 1.3s로 48% 개선",
         type: "text",
       },
       {
         content:
-          "Next.js Image, Dynamic import를 활용한 이미지 최적화로 LCP(Largest Contentful Paint) 5.2s에서 0.9s로 83% 단축",
+          "Tanstack Query의 캐싱 전략과 데이터 프리페칭을 통해 초기 로딩 시간 최적화",
         type: "text",
       },
       {
         content:
-          "스켈레톤 UI 도입으로 사용자 체감 로딩 시간 개선 및 CLS 0으로 수렴",
-        type: "text",
-      },
-      {
-        content:
-          "React.memo, useCallback 등을 활용한 메모이제이션으로 불필요한 리렌더링 최소화",
-        type: "text",
-      },
-      { content: "메인페이지", type: "subtitle" },
-      {
-        content:
-          "번들 사이즈(~7KB)가 작고 제스처 지원이 우수한 embla-carousel 도입으로 성능과 사용자 경험 최적화",
-        type: "text",
-      },
-      {
-        content:
-          "Zustand를 활용한 전역 상태 관리로 검색, 필터링, 정렬 기능 모듈화",
-        type: "text",
-      },
-      {
-        content:
-          "Offset 기반 페이지네이션으로 무한 스크롤 구현 대량의 체험 데이터 효율적 로딩",
-        type: "text",
-      },
-      {
-        content:
-          "디바이스 크기에 따른 동적 데이터 페칭으로 불필요한 API 호출 최소화 (window.innerWidth 감지 커스텀 훅 제작)",
-        type: "text",
-      },
-      { content: "그 외 구현", type: "subtitle" },
-      {
-        content:
-          "createPortal을 활용한 모달 컴포넌트 제작 및 useModal 커스텀 훅 개발로 재사용성 향상",
-        type: "text",
-      },
-      {
-        content:
-          "모달 컴포넌트를 활용한 후기 작성 시스템 구현으로 사용자 경험 개선",
-        type: "text",
-      },
-      {
-        content:
-          "JSDoc을 활용한 컴포넌트 및 커스텀 훅 문서화로 코드 가독성과 유지보수성 향상",
+          "Skeleton UI 구현하여 UX 개선 및 CLS(Cumulative Layout Shift) 0으로 수렴",
         type: "text",
       },
     ],
@@ -194,7 +206,6 @@ export const projectsData: ProjectItemType[] = [
       "NextJS",
       "TypeScript",
       "TailwindCSS",
-      "Zustand",
       "Tanstack Query",
       "Embla Carousel",
     ],
@@ -206,35 +217,25 @@ export const projectsData: ProjectItemType[] = [
     title: "Taskify",
     description: `Kanban 보드를 활용하여 효과적으로 일정을 관리할 수 있는 플랫폼`,
     details: [
-      { content: "재사용 가능한 컴포넌트 구현", type: "subtitle" },
+      { content: "Tanstack Query 도입 경험", type: "subtitle" },
       {
         content:
-          "합성 컴포넌트 패턴 도입 Button, Modal 등 공통 컴포넌트의 불필요한 리렌더링 최소화, 재사용성 향상",
+          "TanStack Query를 활용해 API 호출 작업, 데이터 캐싱, 상태 관리를 하기 위해 도입하였고 실시간 피드백을 위해 낙관적 업데이트 기능을 활용",
+        // 반복적인 데이터 fetching 코드 감소, 기존 데이터 캐싱, 비동기 작업의 상태 관리, 서버와 클라이언트 단의 데이터 동기화, 데이터 관리 최적화
         type: "text",
       },
+      { content: "전역 상태 관리의 필요성", type: "subtitle" },
       {
         content:
-          "TypeScript 활용해 컴포넌트의 타입을 명확히 정의하여 타입 안정성 확보",
+          "대시보드 상태를 전역적으로 공유해야할 필요가 있기에, Jotai 도입.\n" +
+          "불필요한 리렌더링을 최소화 시키고 개발 생산성과 유지보수성을 향상",
         type: "text",
       },
-      { content: "할 일 관리 시스템 구현", type: "subtitle" },
-      {
-        content: "할 일 카드의 생성/수정 기능 구현 및 반응형 UI/UX 설계",
-        type: "text",
-      },
+      { content: "컴파운드 패턴 도입 경험", type: "subtitle" },
       {
         content:
-          "TanStack Query를 활용한 서버 상태 관리로 데이터 캐싱 및 실시간 동기화 구현",
-        type: "text",
-      },
-      {
-        content:
-          "Jotai를 활용한 효율적인 전역 상태 관리로 컴포넌트 간 데이터 공유 최적화",
-        type: "text",
-      },
-      {
-        content:
-          "쿼리 무효화 전략을 통한 실시간 데이터 업데이트로 사용자 경험 개선",
+          "컴파운드 패턴과 React Context API를 활용한 Modal 컴포넌트 구현으로 내부 상태를 캡슐화하고, Object.assign을 사용해 메인 컴포넌트에 서브 컴포넌트를 합성하여 자식 컴포넌트를 import 없이도 사용할 수 있도록 하여 DX(개발자 경험) 향상",
+        // 컴파운드 패턴 : 컴포넌트 간 결합도를 낮추고 재사용성을 높이기 위해 사용하는 패턴
         type: "text",
       },
     ],
@@ -249,38 +250,56 @@ export const projectsData: ProjectItemType[] = [
     title: "SurvForm",
     description: `온라인 설문지 생성, 공유 및 수집된 데이터 차트를 통한 분석 플랫폼`,
     details: [
-      { content: "프로젝트 환경 구축", type: "subtitle" },
+      { content: "프로젝트 환경 구축 (Webpack -> Vite)", type: "subtitle" },
       {
         content:
-          "Vite를 활용한 빠른 개발 환경 구축 및 TypeScript 설정으로 타입 안정성 확보",
+          "빠른 개발 환경 구축 및 번들러 마이그레이션 경험 얻고자 Webpack에서 Vite로 마이그레이션 진행",
         type: "text",
       },
       {
-        content: "Tailwind CSS를 활용한 반응형 디자인 시스템 구축",
+        content:
+          "Tailwind CSS config 커스텀으로 일관된 디자인 시스템 구축 및 유지보수성 향상",
+        type: "text",
+      },
+
+      { content: "Firebase 도입 경험", type: "subtitle" },
+      // 처음에는 Express.js와 fs 모듈로 개발을 시작했는데, 배포 환경에서 fs 모듈은 로컬 파일시스템에 의존하기 때문에, 데이터 관리 문제가 발생했습니다.
+      // Firebase는 이러한 문제를 해결해주고, 인증부터 데이터베이스까지 필요한 기능을 모두 제공하기에 개발 시간을 단축할 수 있었습니다.
+      // 그리고 실시간 데이터 동기화가 필요했습니다. 설문 응답을 실시간으로 수집하고 차트로 시각화하는 기능이 필요했는데, Firestore Database의 실시간 동기화 기능이 이 요구사항을 완벽하게 충족시켰습니다.
+      {
+        content: "Firebase Authentication을 활용한 사용자 인증 구현",
+        type: "text",
+      },
+      {
+        content:
+          "설문 응답 데이터 저장과 실시간 데이터 동기화(응답 결과 차트 시각화)가 필요하여, Firestore Database 도입",
         type: "text",
       },
       { content: "핵심 기능 구현", type: "subtitle" },
       {
         content:
-          "React Hook Form을 활용한 동적 폼 생성 및 유효성 검사 시스템 구현",
-        type: "text",
-      },
-      {
-        content: "Recharts를 활용한 데이터 시각화 및 분석 기능 구현",
+          "온라인 설문지 플랫폼 특성 상 폼 사용이 필수적이라 React Hook Form을 활용한 폼 생성 및 관리, 유효성 검사 시스템 구현",
         type: "text",
       },
       {
         content:
-          "Firebase를 활용한 실시간 데이터 동기화 및 사용자 인증 시스템 구현",
+          "복잡한 폼 구조와 다수의 input을 효율적으로 관리하기 위해 React Hook Form 도입. 비제어 컴포넌트로 성능을 최적화하고, register 함수를 통해 모든 input을 하나의 객체로 관리하여 코드 복잡도를 낮춤",
+        /**
+         * 1. 제어 컴포넌트
+         * React의 state를 통해 폼 데이터를 관리하는 방식입니다.
+         * 사용자의 입력값에 의해 state가 제어되며, state 변경될 때마다 리렌더링이 발생합니다.
+         * 이 방식은 실시간 유효성 검사나 입력값 변환이 필요한 경우에 유용하지만, 입력 필드가 많아질수록 불필요한 리렌더링이 발생할 수 있는 단점이 있습니다.
+         *
+         * 2. 비제어 컴포넌트
+         * DOM을 직접 참조하여 폼 데이터를 관리하는 방식입니다.
+         * React state가 아닌 ref를 통해 DOM 요소에 직접 접근하여 값을 가져오기 때문에 불필요한 리렌더링을 방지할 수 있습니다.
+         * 이 방식은 많은 입력 필드가 있는 폼에 유용합니다.
+         * React Hook Form은 이러한 비제어 컴포넌트 방식을 사용하여 폼의 성능을 최적화하고 있습니다.
+         */
         type: "text",
       },
-      { content: "성능 최적화", type: "subtitle" },
       {
-        content: "React.memo와 useCallback을 활용한 컴포넌트 최적화",
-        type: "text",
-      },
-      {
-        content: "Code Splitting을 통한 초기 로딩 시간 개선",
+        content: "Recharts를 활용한 데이터 시각화 컴포넌트 구현",
         type: "text",
       },
     ],
@@ -303,76 +322,29 @@ export const projectsData: ProjectItemType[] = [
     title: "Fandom-K",
     description: `아이돌 조공 플랫폼`,
     details: [
-      { content: "프로젝트 환경 구축", type: "subtitle" },
-      {
-        content: "React와 TypeScript를 활용한 웹 애플리케이션 개발",
-        type: "text",
-      },
-      {
-        content:
-          "ESLint, Prettier, StyleLint를 통한 코드 품질 관리 및 일관된 코딩 스타일 유지",
-        type: "text",
-      },
       { content: "핵심 기능 구현", type: "subtitle" },
       {
-        content: "Axios 모듈화를 통한 API 통신 최적화 및 재사용성 향상",
+        content: "PC, 태블릿, 모바일 환경을 지원하는 반응형 랜딩 페이지 개발",
+        type: "text",
+      },
+      {
+        content: "react-modal 라이브러리를 활용한 모달 컴포넌트 구현",
         type: "text",
       },
       {
         content:
-          "useRequest 커스텀 훅을 통한 비동기 요청 상태 관리 및 에러 핸들링 구현",
+          "데이터 로딩 상태를 위한 Skeleton UI 구현으로 사용자 경험(UX) 개선",
         type: "text",
       },
       {
         content:
-          "합성 컴포넌트 패턴을 활용한 Button, Modal 등 재사용 가능한 UI 컴포넌트 구현",
-        type: "text",
-      },
-      {
-        content:
-          "Jotai를 활용한 전역 상태 관리 및 localStorage 연동으로 크레딧 시스템 구현",
-        type: "text",
-      },
-      { content: "성능 최적화", type: "subtitle" },
-      {
-        content:
-          "Webp 이미지 포맷 변환 및 Intersection Observer API를 활용한 Lazy Loading 구현",
-        type: "text",
-      },
-      {
-        content: "Skeleton UI를 통한 로딩 상태 개선 및 사용자 경험 향상",
-        type: "text",
-      },
-      { content: "주요 기능", type: "subtitle" },
-      {
-        content: "크레딧 충전 및 후원 시스템 구현",
-        type: "text",
-      },
-      {
-        content: "이달의 차트 투표 시스템 및 실시간 순위 업데이트",
-        type: "text",
-      },
-      {
-        content: "마이페이지에서 관심 있는 아이돌 관리 기능 구현",
-        type: "text",
-      },
-      {
-        content: "반응형 디자인을 통한 PC, 태블릿, 모바일 환경 지원",
+          "Layout Navbar 컴포넌트 구현 및 Webp 이미지 포맷 변환을 통한 성능 최적화",
         type: "text",
       },
     ],
     image: "/images/projects/fandomk.webp",
     link: "https://github.com/edhcoding/Fandom-k",
-    skills: [
-      "ReactJS",
-      "TypeScript",
-      "Axios",
-      "Jotai",
-      "SCSS",
-      "ESLint",
-      "Prettier",
-      "StyleLint",
-    ],
+    skills: ["ReactJS", "TypeScript", "Jotai", "SCSS"],
     cateTag: "부트캠프 프로젝트",
   },
 ];

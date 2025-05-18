@@ -189,6 +189,7 @@ export default function ExpandedProjectItem({
                       key={`project-${title}-detail-${idx}`}
                       variant="body2"
                       color="text.primary"
+                      sx={{ whiteSpace: "pre-wrap" }}
                     >
                       {detail.content}
                     </TextWithDot>
