@@ -23,6 +23,7 @@ export default function AboutSection() {
           gap={1}
           display="flex"
           flexDirection="column"
+          whiteSpace="pre-line"
         >
           <Box display="flex" alignItems="center" gap={1}>
             <LocalOfferIcon color="info" />

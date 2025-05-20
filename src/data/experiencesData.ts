@@ -85,7 +85,7 @@ export const experiencesData: ExpItemType[] = [
       },
       {
         content:
-          '취미 활동 모임 플랫폼 "Manchui" 웹 프론트 개발 (백엔드 • 디자인팀과의 협업 경험)',
+          '취미 활동 모임 플랫폼 "Manchui" 웹 서비스 프론트 개발 (백엔드 • 디자인팀과의 협업 경험)',
         type: "text",
       },
     ],

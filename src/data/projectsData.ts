@@ -9,19 +9,14 @@ export const projectsData: ProjectItemType[] = [
       { content: "프로젝트 세팅", type: "subtitle" },
       {
         content:
-          "팀장 역할을 맡아 프로젝트 세팅 및 Notion을 활용한 문서화, 프로젝트 일정 관리 진행",
+          "팀장 역할을 맡아 프로젝트 세팅 및 Notion을 활용한 문서화, 일정 관리 등 문서화하여 팀 협업 효율과 개발 생산성을 향상",
         // 프로젝트 초기 세팅을 주도했으며, Notion을 활용한 컨벤션 정의 및 프로젝트 일정 관리, 문서화 진행
         // 특히 ESLint, Prettier 규칙을 커스텀하여 일관된 코드 품질과 스타일 유지 및 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상
         type: "text",
       },
       {
         content:
-          "ESLint, Prettier 규칙 커스텀하여 일관된 코드 품질과 스타일 유지 및 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상",
-        type: "text",
-      },
-      {
-        content:
-          "Tailwind CSS config 커스텀으로 일관된 디자인 시스템 구축 및 유지보수성 향상",
+          "ESLint, Prettier, Tailwind CSS 등 다양한 툴을 커스텀하여 일관된 코드 품질/스타일과 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상",
         // 기존 Tailwind CSS 설정에서 폰트, 색상, 미디어 쿼리 등 커스텀해 일관된 디자인 시스템 구축
         type: "text",
       },
@@ -29,20 +24,7 @@ export const projectsData: ProjectItemType[] = [
       { content: "주요 기능 개발", type: "subtitle" },
       {
         content:
-          "실시간으로 변동되는 모임 데이터의 특성을 고려하여, 기존 Offset 기반 페이지네이션에서 Cursor 기반 페이지네이션으로 변경을 제안 및 구현. 이를 통해 모임 생성/종료/삭제로 인한 데이터 변동에도 안정적인 무한 스크롤 구현",
-        /**
-         * Offset 기반 페이지네이션
-         * - 데이터베이스에서 특정 위치(offset) 부터 일정 개수(limit)만큼 데이터를 가져오는 방식입니다.
-         * - 장점은 구현이 간단하고 직관적이지만 단점으로 데이터가 삭제/추가가 발생할 때 중복이나 누락이 발생 가능함
-         * Cursor 기반 페이지네이션
-         * - 특정 기준점(cursor)을 기준으로 그 이후의 데이터를 가져오는 방식입니다.
-         * - 장점으로는 실시간 데이터 변동에 안정적이고 무한 스크롤 구현에 적합합니다. 단점으로는 구현이 상대적으로 복잡하다는 단점이 있습니다.
-         */
-        type: "text",
-      },
-      {
-        content:
-          "SSE(Server-Sent-Event)와 WebSocket을 활용한 실시간 알림 및 채팅 시스템 구현",
+          "SSE(Server-Sent-Event)와 WebSocket을 활용한 실시간 알림, 채팅 구현",
         /**
          * 실시간 알림과 채팅을 위해 SSE와 WebSocket을 각각 활용했습니다. SSE는 단방향 알림에 적합하고, WebSocket은 양방향 채팅에 적합하다는 점을 고려하여 선택했습니다.
          * SSE
@@ -59,7 +41,40 @@ export const projectsData: ProjectItemType[] = [
       },
       {
         content:
-          "실시간 피드백을 위해 찜하기 버튼, 알림 삭제 버튼에 낙관적 업데이트 패턴 도입 및 MouseEvent, TouchEvent를 통합 관리하는 커스텀 훅을 구현하여 제스처 기반 알림삭제 기능 개발 및 크로스 플랫폼 호환을 위해 고민",
+          "실시간 데이터 변동에 대응하기 위해, 기존 Offset 기반에서 Cursor 기반 페이지네이션으로 제안 및 변경. 이를 통해 데이터 변동에도 안정적인 무한 스크롤 구현",
+        /**
+         * Offset 기반 페이지네이션
+         * - 데이터베이스에서 특정 위치(offset) 부터 일정 개수(limit)만큼 데이터를 가져오는 방식입니다.
+         * - 장점은 구현이 간단하고 직관적이지만 단점으로 데이터가 삭제/추가가 발생할 때 중복이나 누락이 발생 가능함
+         * Cursor 기반 페이지네이션
+         * - 특정 기준점(cursor)을 기준으로 그 이후의 데이터를 가져오는 방식입니다.
+         * - 장점으로는 실시간 데이터 변동에 안정적이고 무한 스크롤 구현에 적합합니다. 단점으로는 구현이 상대적으로 복잡하다는 단점이 있습니다.
+         */
+        type: "text",
+      },
+      {
+        content:
+          "Zustand를 활용한 모임 관련 상태를 전역에서 관리하여 상태 로직을 모듈화하고 유지보수성 향상",
+        /**
+         * Zustand를 선택한 이유
+         * - 빠른 프로토타입 개발을 하기 위해 러닝 커브가 비교적 낮고 보일러플레이트 코드가 없음(provider), 더 작은 번들 사이즈(Redux, recoil 보다 작음), 커뮤니티 생태계가 크기에 더 많은 자료 존재
+         */
+        type: "text",
+      },
+      {
+        content:
+          "컴포넌트와 루트 레벨에 ErrorBoundary를 이용하여 API 에러 처리 및 에러 페이지 구현으로 UX 개선",
+        type: "text",
+      },
+      {
+        content:
+          "Tanstack Query onError 콜백과 Toastify 기반의 Toast 컴포넌트를 구현해 사용자 친화적인 에러 알림과 에러 로깅으로 UX와 DX 동시 개선",
+        type: "text",
+      },
+      {
+        content:
+          "찜하기 버튼, 알림 삭제 버튼에 낙관적 업데이트 패턴 도입 및 제스처 기반 알림삭제 기능 개발로 UX 개선 및 크로스 플랫폼 호환을 위해 고민",
+        // MouseEvent, TouchEvent를 통합 관리하는 커스텀 훅을 구현하여 제스처 기반 알림삭제 기능 개발 및 크로스 플랫폼 호환을 위해 고민
         /**
          * 사용자 경험을 개선하기 위해 낙관적 업데이트 패턴을 적용하였습니다.
          *
@@ -79,16 +94,7 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
       {
-        content:
-          "Zustand를 활용한 전역 상태 관리로 검색, 필터링, 정렬 기능 모듈화 및 상태 관리 로직 분리",
-        /**
-         * Zustand를 선택한 이유
-         * - 빠른 프로토타입 개발을 하기 위해 러닝 커브가 비교적 낮고 보일러플레이트 코드가 없음(provider), 더 작은 번들 사이즈(Redux, recoil 보다 작음), 커뮤니티 생태계가 크기에 더 많은 자료 존재
-         */
-        type: "text",
-      },
-      {
-        content: "검색 기능에 Debounce 패턴을 적용하여 무분별한 API 호출 방지",
+        content: "검색 기능에 Debounce 패턴을 적용해 무분별한 API 호출 방지",
         // 사용자가 검색어 입력할 때마다 API 호출 발생 -> 검색어 입력 후 엔터키를 누르면 검색 결과 호출하는 방식 고민(UX 측면에서 좋지 않음) -> debounce 패턴을 적용해 일정 시간 지난 후에 API 호출 하는 방식 선택(사용자 경험과 성능 측면에서 모두 개선된다고 판단)
         /**
          * 디바운스(Debounce)와 쓰로틀(Throttle)은 둘 다 함수의 연속적인 실행을 제한하는 목적을 갖고서 설계
@@ -110,7 +116,7 @@ export const projectsData: ProjectItemType[] = [
       },
       {
         content:
-          "외부 라이브러리 없이 React Hook과 Date 객체를 활용한 커스텀 캘린더 컴포넌트 구현 및 단일/범위 선택 기능 지원하도록 구현",
+          "외부 라이브러리 없이 React Hook과 Date 객체를 활용한 캘린더 컴포넌트 구현 및 단일/범위 선택 기능 지원하도록 구현",
         type: "text",
       },
       {
@@ -128,12 +134,17 @@ export const projectsData: ProjectItemType[] = [
        */
       {
         content:
-          "bundle-analyzer 툴을 이용해 코드 스플리팅 및 lottie-react에서 react-lottie-light로 교체해 번들 사이즈 약 32% 감소",
+          "bundle-analyzer 툴을 이용해 번들 사이즈 분석 및 코드 스플리팅, lottie-react에서 react-lottie-light로 교체해 번들 사이즈 약 32% 감소",
         type: "text",
       },
       {
         content:
-          "초기 로드 속도 개선을 위한 라이프사이클 최적화, 이미지 최적화 등의 작업을 통해 초기 로딩 시간을 2.8s -> 1.3s(53%)로 단축",
+          "초기 로딩 속도 개선을 위한 라이프사이클 최적화, 이미지 최적화 작업을 통해 초기 로딩 시간을 2.8s -> 1.3s(53%)로 단축",
+        type: "text",
+      },
+      {
+        content:
+          "Suspense와 Skeleton UI를 조합해 데이터 로딩 상태를 최적화하고, CLS(Cumulative Layout Shift) 0으로 개선",
         type: "text",
       },
       {
@@ -143,12 +154,7 @@ export const projectsData: ProjectItemType[] = [
       },
       {
         content:
-          "SEO 컴포넌트 개발로 페이지별 메타 태그 관리 및 Open Graph, Twitter Card 지원",
-        type: "text",
-      },
-      {
-        content:
-          "Skeleton UI 제작해 UX 개선 및 CLS(Cumulative Layout Shift) 0으로 수렴",
+          "SEO 컴포넌트 개발로 페이지별 메타 태그 관리, Open Graph, Twitter Card 지원해 검색 엔진 최적화",
         type: "text",
       },
     ],
@@ -176,19 +182,14 @@ export const projectsData: ProjectItemType[] = [
       { content: "프로젝트 세팅", type: "subtitle" },
       {
         content:
-          "ESLint, Prettier 규칙을 커스텀하여 일관된 코드 품질과 스타일 유지 및 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상",
-        type: "text",
-      },
-      {
-        content:
-          "Tailwind CSS config 확장 관리로 일관된 디자인 시스템 구축 및 유지보수성 향상",
+          "ESLint, Prettier, Tailwind CSS 등 다양한 툴을 커스텀하여 일관된 코드 품질/스타일과 JSDoc을 활용한 컴포넌트 문서화로 DX(개발자 경험) 향상",
         type: "text",
       },
 
       { content: "주요 기능 개발", type: "subtitle" },
       {
         content:
-          "프로젝트 기간 내 빠른 MVP 확보를 위해 번들 사이즈(6.9KB)가 작고 제스처 지원이 우수한 embla-carousel 도입으로 성능과 UX 최적화",
+          "프로젝트 기간 내 빠른 MVP 확보를 위해 번들 사이즈(6.9KB)가 작고 제스처 지원이 우수한 embla-carousel 도입해 Modal 컴포넌트 구현",
         type: "text",
       },
       {
@@ -222,12 +223,7 @@ export const projectsData: ProjectItemType[] = [
       },
       {
         content:
-          "Tanstack Query의 캐싱 전략과 데이터 프리페칭을 통해 초기 로딩 시간 최적화",
-        type: "text",
-      },
-      {
-        content:
-          "Skeleton UI 구현하여 UX 개선 및 CLS(Cumulative Layout Shift) 0으로 수렴",
+          "Skeleton UI 구현해 UX 개선 및 CLS(Cumulative Layout Shift) 0으로 개선",
         type: "text",
       },
     ],
@@ -252,7 +248,7 @@ export const projectsData: ProjectItemType[] = [
       { content: "Tanstack Query 도입 경험", type: "subtitle" },
       {
         content:
-          "TanStack Query를 활용해 API 호출 작업, 데이터 캐싱, 상태 관리를 하기 위해 도입하였고 실시간 피드백을 위해 낙관적 업데이트 기능을 활용",
+          "처음으로 TanStack Query를 도입해 API 호출, 데이터 캐싱, 상태 관리등 장점을 활용하고 사용자 경험을 위해 낙관적 업데이트 기능을 활용",
         // 반복적인 데이터 fetching 코드 감소, 기존 데이터 캐싱, 비동기 작업의 상태 관리, 서버와 클라이언트 단의 데이터 동기화, 데이터 관리 최적화
         type: "text",
       },
@@ -260,13 +256,14 @@ export const projectsData: ProjectItemType[] = [
       {
         content:
           "대시보드 상태를 전역적으로 공유해야할 필요가 있기에, Jotai 도입.\n" +
-          "불필요한 리렌더링을 최소화 시키고 개발 생산성과 유지보수성을 향상",
+          "불필요한 리렌더링을 최소화 시키고 개발 생산성과 유지보수성 향상",
         type: "text",
       },
       { content: "컴파운드 패턴 도입 경험", type: "subtitle" },
       {
         content:
-          "컴파운드 패턴과 React Context API를 활용한 Modal 컴포넌트 구현으로 내부 상태를 캡슐화하고, Object.assign을 사용해 메인 컴포넌트에 서브 컴포넌트를 합성하여 자식 컴포넌트를 import 없이도 사용할 수 있도록 하여 DX(개발자 경험) 향상",
+          "컴파운드 패턴과 React Context API를 활용해 Modal 컴포넌트 구현, Object.assign으로 컴포넌트 합성을 통해 import 없이도 사용할 수 있도록 하여 재사용성과 DX(개발자 경험) 향상",
+        // "컴파운드 패턴과 React Context API를 활용해 Modal 컴포넌트를 구현하고, Object.assign으로 컴포넌트 합성을 통해 import 없이 사용할 수 있도록 DX를 향상시켰습니다."
         // 컴파운드 패턴 : 컴포넌트 간 결합도를 낮추고 재사용성을 높이기 위해 사용하는 패턴
         type: "text",
       },
@@ -307,15 +304,11 @@ export const projectsData: ProjectItemType[] = [
           "설문 응답 데이터 저장과 실시간 데이터 동기화(응답 결과 차트 시각화)가 필요하여, Firestore Database 도입",
         type: "text",
       },
+
       { content: "핵심 기능 구현", type: "subtitle" },
       {
         content:
-          "온라인 설문지 플랫폼 특성 상 폼 사용이 필수적이라 React Hook Form을 활용한 폼 생성 및 관리, 유효성 검사 시스템 구현",
-        type: "text",
-      },
-      {
-        content:
-          "복잡한 폼 구조와 input을 효율적으로 관리하기 위해 React Hook Form 도입. 비제어 컴포넌트 방식으로 성능을 최적화하고, register 함수를 통해 모든 input을 하나의 객체로 관리하여 코드 복잡도 감소",
+          "프로젝트 특성상 많은 Form 요소가 필요해 React Hook Form을 도입하여 비제어 컴포넌트 방식으로 성능을 최적화하고, register 함수를 통해 모든 input을 하나의 객체로 관리하여 코드 복잡도와 리렌더링을 감소",
         /**
          * 1. 제어 컴포넌트
          * React의 state를 통해 폼 데이터를 관리하는 방식입니다.
@@ -331,7 +324,8 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
       {
-        content: "Recharts를 활용한 데이터 시각화 컴포넌트 구현",
+        content:
+          "실시간으로 수집되는 데이터를 Recharts 도입하여 데이터 시각화 컴포넌트 구현",
         type: "text",
       },
     ],
