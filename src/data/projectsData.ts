@@ -62,7 +62,7 @@ export const projectsData: ProjectItemType[] = [
 
       { content: "로딩 및 에러 처리", type: "subtitle" },
       {
-        content: "Suspense와 Sekelton UI를 활용한 자연스로운 데이터 로딩 처리",
+        content: "Suspense와 Skeleton UI를 활용한 자연스로운 데이터 로딩 처리",
         type: "text",
       },
       {
