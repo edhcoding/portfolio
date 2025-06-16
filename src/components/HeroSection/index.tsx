@@ -221,14 +221,14 @@ export default function HeroSection() {
             >
               <Box>
                 <Typography variant="h3" color="text.primary">
-                  1년간의 성장
+                  멈추지 않는 성장 곡선
                 </Typography>
                 <Typography
                   variant="body1"
                   color="text.secondary"
                   fontWeight={FontWeightValues.SEMI_BOLD}
                 >
-                  부트캠프를 시작으로 현재까지의 성장
+                  부트캠프를 시작으로 끊임없는 성장
                 </Typography>
               </Box>
               <img src="images/arrow.webp" width="100%" alt="프로젝트 경험" />

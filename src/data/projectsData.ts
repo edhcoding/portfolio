@@ -1,6 +1,93 @@
 import type { ProjectItemType } from "@/types";
 
 export const projectsData: ProjectItemType[] = [
+  // 0
+  {
+    title: "DevLink",
+    description: `나만의 커스텀 프로필 링크를 만들고 공유할 수 있는 서비스`,
+    details: [
+      { content: "Next.js App Router", type: "subtitle" },
+      {
+        content:
+          "서버 컴포넌트를 활용한 데이터 패칭 및 서버 사이드 렌더링 구현으로 로딩 성능 최적화",
+        type: "text",
+      },
+      {
+        content:
+          "서버 액션을 사용해 서버 측에서 폼 데이터 및 비동기 데이터 안전하게 처리",
+        // API 엔드포인트 없이, 함수 호출만으로 클라이언트에서 서버 사이드 로직 처리 가능
+        // 상태 관리 및 폼 처리에 유용 - 폼 제출시 API 라우트 없이도 서버에서 폼 데이터 처리 가능
+        // 보안 - 클라이언트에서 직접 API 요청을 보낼 필요가 없기에, 민감한 데이터 노출 위험이 줄어든다.
+        // 굳이 서버 액션을 사용하는 이유가 뭘까?
+        // - Server Action는 (회사 내에서 만든) 자체 API를 사용할 때 fetch를 사용하지 않고도 효율적인 방식으로 가져올 수 있는 것이고, 외부 API를 불러올 때는 기존 방식과 동일하게 fetch 또는 axios 를 사용해야한다.
+        type: "text",
+      },
+      {
+        content:
+          "generateMetadata를 활용해 사용자 프로필에 따른 동적 메타데이터 생성 및 SEO 최적화",
+        type: "text",
+      },
+
+      { content: "인증 및 보안", type: "subtitle" },
+      {
+        content: "미들웨어를 통한 인증 상태 확인 및 보호된 라우트 접근 제어",
+        type: "text",
+      },
+      {
+        content:
+          "Row Level Security (RLS)로 데이터베이스 접근 권한 제어 및 Aho-Corasick 알고리즘을 활용한 욕설 필터링 구현",
+        type: "text",
+      },
+      {
+        content:
+          "React Hook Form과 Zod를 활용한 타입 안전한 폼 처리 및 커스텀 에러 메시지 구현",
+        type: "text",
+      },
+      {
+        content: "Google, GitHub OAuth 인증 지원",
+        type: "text",
+      },
+
+      { content: "사용자 경험 (UX)", type: "subtitle" },
+      {
+        content:
+          "ShadcnUI를 활용한 직관적이고 부드러운 애니메이션 구현 및 토스트 메시지를 통한 상황별 사용자 피드백 제공",
+        type: "text",
+      },
+      {
+        content:
+          "시스템 설정에 따른 자동 테마 전환 지원 및 링크 복사, QR 코드 생성 및 다운로드, QR Scanner 기능 구현",
+        type: "text",
+      },
+
+      { content: "로딩 및 에러 처리", type: "subtitle" },
+      {
+        content: "Suspense와 Sekelton UI를 활용한 자연스로운 데이터 로딩 처리",
+        type: "text",
+      },
+      {
+        content: "ErrorBoundary와 Error 페이지 구현을 통한 전역 에러 처리",
+        type: "text",
+      },
+      {
+        content: "404 페이지 및 인증 오류 페이지 구현으로 사용자 경험 개선",
+        type: "text",
+      },
+    ],
+    image: "/images/projects/devlink.webp",
+    link: "https://github.com/edhcoding/DevLink",
+    skills: [
+      "ReactJS",
+      "NextJS App Router",
+      "TypeScript",
+      "ShadcnUI",
+      "TailwindCSS",
+      "React Hook Form",
+      "Zod",
+      "QR Code & QR Scanner",
+    ],
+    cateTag: "사이드 프로젝트",
+  },
   // 1
   {
     title: "Manchui(만취)",

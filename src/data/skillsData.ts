@@ -179,7 +179,7 @@ export const skillsData: SkillItemType[] = [
       // https://www.heropy.dev/p/x8iedW
       "빠른 개발 서버 시작 시간과 빌드 속도를 개선하기 위해 webpack에서 Vite로 마이그레이션을 진행했습니다.",
       // Bundler: 여러 개의 JavaScript 파일을 하나로 묶어주는 도구
-      // Vite dev 모드에서는 esbuild를 사용하여 빠른 번들링 속도로 개발 경험 향상 시켜줌 - 변경사항 있을 때마다 빠르게 반영, 최적화는 덜 하지만 빠른 속도가 중요
+      // Vite dev 모드에서는 esbuild를 사용하여 빠른 번들링 속도로 개발 경험 향상 시켜줌(Go 언어 기반이기 때문, 코드 파싱, 출력과 소스맵 생성을 모두 병렬로 출력, ESModule/CJS 빌드를 모두 제공함) - 변경사항 있을 때마다 빠르게 반영, 최적화는 덜 하지만 빠른 속도가 중요
       // Vite Production 모드에서는 Rollup을 사용하여 최적화된 번들링을 지원합니다. - 코드를 최적화하고 압축, 불필요한 코드 제거, 성능 최적화
     ],
   },
