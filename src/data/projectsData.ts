@@ -366,10 +366,10 @@ export const projectsData: ProjectItemType[] = [
     title: "SurvForm",
     description: `온라인 설문지 생성, 공유 및 수집된 데이터 차트를 통한 분석 플랫폼`,
     details: [
-      { content: "프로젝트 환경 구축 (Webpack -> Vite)", type: "subtitle" },
+      { content: "프로젝트 환경 구축", type: "subtitle" },
       {
         content:
-          "빠른 개발 환경 구축 및 번들러 마이그레이션 경험 얻고자 Webpack에서 Vite로 마이그레이션 진행",
+          "빠른 개발 환경 구축 및 번들러 마이그레이션 경험 얻고자 Webpack에서 Vite로 마이그레이션",
         type: "text",
       },
       {
@@ -378,24 +378,24 @@ export const projectsData: ProjectItemType[] = [
         type: "text",
       },
 
-      { content: "Firebase 도입 경험", type: "subtitle" },
+      { content: "Firebase 도입", type: "subtitle" },
       // 처음에는 Express.js와 fs 모듈로 개발을 시작했는데, 배포 환경에서 fs 모듈은 로컬 파일시스템에 의존하기 때문에, 데이터 관리 문제가 발생했습니다.
       // Firebase는 이러한 문제를 해결해주고, 인증부터 데이터베이스까지 필요한 기능을 모두 제공하기에 개발 시간을 단축할 수 있었습니다.
       // 그리고 실시간 데이터 동기화가 필요했습니다. 설문 응답을 실시간으로 수집하고 차트로 시각화하는 기능이 필요했는데, Firestore Database의 실시간 동기화 기능이 이 요구사항을 완벽하게 충족시켰습니다.
       {
-        content: "Firebase Authentication을 활용한 사용자 인증 구현",
+        content: "Firebase Authentication을 활용한 인증 구현",
         type: "text",
       },
       {
         content:
-          "설문 응답 데이터 저장과 실시간 데이터 동기화(응답 결과 차트 시각화)가 필요하여, Firestore Database 도입",
+          "Firestore Database 도입으로 설문 응답 데이터 저장과 실시간 데이터 동기화(응답 결과 차트 시각화) 구현",
         type: "text",
       },
 
       { content: "핵심 기능 구현", type: "subtitle" },
       {
         content:
-          "프로젝트 특성상 많은 Form 요소가 필요해 React Hook Form을 도입하여 비제어 컴포넌트 방식으로 성능을 최적화하고, register 함수를 통해 모든 input을 하나의 객체로 관리하여 코드 복잡도와 리렌더링을 감소",
+          "React Hook Form을 도입하여 비제어 컴포넌트 방식으로 렌더링 최적화 및 input을 하나의 객체로 관리하여 코드 복잡도 감소",
         /**
          * 1. 제어 컴포넌트
          * React의 state를 통해 폼 데이터를 관리하는 방식입니다.
@@ -412,7 +412,7 @@ export const projectsData: ProjectItemType[] = [
       },
       {
         content:
-          "실시간으로 수집되는 데이터를 Recharts 도입하여 데이터 시각화 컴포넌트 구현",
+          "Recharts 도입으로 실시간으로 수집되는 데이터 시각화 컴포넌트 구현",
         type: "text",
       },
     ],
