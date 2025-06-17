@@ -51,6 +51,11 @@ export const projectsData: ProjectItemType[] = [
       { content: "사용자 경험 (UX)", type: "subtitle" },
       {
         content:
+          "프로필 설정 페이지의 복잡한 프로세스를 useFunnel 커스텀 훅과 React Hook Form을 활용한 단계별 조건부 렌더링 및 전역 폼 상태 관리",
+        type: "text",
+      },
+      {
+        content:
           "ShadcnUI를 활용한 직관적이고 부드러운 애니메이션 구현 및 토스트 메시지를 통한 상황별 사용자 피드백 제공",
         type: "text",
       },
